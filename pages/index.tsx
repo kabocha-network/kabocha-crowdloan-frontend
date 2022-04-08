@@ -1,31 +1,26 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from "next";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div className="container m-auto">
       <Head>
         <title>Kabocha Crowdloan App</title>
         <meta name="description" content="Kabocha Crowdloan App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+      <main>
+        <h1 className="text-3xl font-bold">
           Welcome to <a href="https://kabocha.network">Kabocha!</a>
         </h1>
 
-        <p className={styles.description}>
-          Get started by connecting your wallet.
-        </p>
+        <p>Get started by connecting your wallet.</p>
       </main>
 
-      <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()} Kabocha Network
-      </footer>
+      <footer>&copy; {new Date().getFullYear()} Kabocha Network</footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
