@@ -1,8 +1,17 @@
 import type { NextPage } from 'next';
 
 import { Layout } from '../components/layout/layout';
-import { CrowdloanTeaser } from '../components/crowdloan-teaser/crowdloan-teaser';
 import { FAQ, FAQItem } from '../components/faq/faq';
+import { CrowdloanTeaserLoader } from '../components/crowdloan-teaser/crowdloan-teaser-loader';
+import dynamic from 'next/dynamic';
+
+const CrowdloanTeaserLive = dynamic(
+  () => import('../components/crowdloan-teaser/crowdloan-teaser'),
+  {
+    ssr: false,
+    loading: () => <CrowdloanTeaserLoader />,
+  }
+);
 
 const Home: NextPage = () => {
   return (
@@ -21,8 +30,9 @@ const Home: NextPage = () => {
               holding EDG.
             </p>
           </div>
-          <div className="py-0">
-            <CrowdloanTeaser />
+          <div className="py-16">
+            {/* @ts-expect-error */}
+            <CrowdloanTeaserLive />
           </div>
         </div>
         <div className="py-8">
@@ -34,7 +44,8 @@ const Home: NextPage = () => {
                 Edgeware, accelerating founders, creators and teams building new public
                 infrastructure. A decentralised community experiencing itself.
                 <br />
-                We’re creating a different reality, a new way of collaborating and sharing value.
+                We&apos;re creating a different reality, a new way of collaborating and sharing
+                value.
               </p>
             </FAQItem>
             <FAQItem question="How do I contribute to the crowdloan?">

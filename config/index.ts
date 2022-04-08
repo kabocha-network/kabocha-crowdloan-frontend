@@ -28,7 +28,10 @@ const apiProviderConfig: Record<string, ApiProviderConfig> = {
 // try to determine config based on current url
 export const getCurrentApiProviderConfig = (): ApiProviderConfig => {
   if (typeof window !== 'undefined') {
-    if (window.location.hostname.match(/kabocha.network/)) {
+    if (
+      window.location.hostname.match(/kabocha.network/) ||
+      window.location.search.match(/network=kusama/)
+    ) {
       return apiProviderConfig.kusama;
     }
   }

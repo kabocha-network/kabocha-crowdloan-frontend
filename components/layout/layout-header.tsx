@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { KabochaLogo } from '../kabocha-logo/kabocha-logo';
 
 export function LayoutHeader() {
   return (
@@ -8,7 +8,7 @@ export function LayoutHeader() {
         <div className="flex flex-row justify-between items-center py-2">
           <Link href="/">
             <a className="text-2xl font-bold -ml-8">
-              <Image src="/icons/kabocha-logo.png" alt="Kabocha" width={96} height={96} />
+              <KabochaLogo width="96" height="96" />
             </a>
           </Link>
           <nav className="flex flex-r gap-x-8">
@@ -40,14 +40,14 @@ export function LayoutHeader() {
               Technology
             </a>
             <a
-              href="https://github.com/Decent-Partners"
+              href="https://github.com/kabocha-network"
               className="p-2"
               target="_blank"
               rel="noreferrer noopener"
             >
               Github
             </a>
-            <Link href="/crowdloan">
+            <Link href="/">
               <a className="mx-2 p-2 px-8 rounded-md bg-yellow font-semibold">Crowdloan</a>
             </Link>
           </nav>
