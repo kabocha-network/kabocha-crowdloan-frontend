@@ -1,36 +1,49 @@
-import { usePolkadotExtension } from '@substra-hooks/core';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 import { Button } from '../../button/button';
-import { useCrowdloan } from '../hooks/useCrowdloan';
+import { ContributionState } from '../crowdloan';
+import { useCrowdloan } from '../useCrowdloan';
 
-export function ContributeStep() {
+type ContributeStepProps = {
+  onContribute: Dispatch<SetStateAction<ContributionState | null>>;
+};
+
+const ContributeStep = ({ onContribute }: ContributeStepProps) => {
   const router = useRouter();
-  const { w3Enabled } = usePolkadotExtension();
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState('');
 
-  const { progress, account, submitContribution } = useCrowdloan();
-
-  useEffect(() => {
-    if (!w3Enabled) {
-      router.push({
-        pathname: '/crowdloan',
-        query: { step: 1 },
-      });
-    }
-  }, [router, w3Enabled]);
+  const { progress, currentAccount, submitContribution, tx } = useCrowdloan();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(parseFloat(e.target.value));
+    setAmount(e.target.value);
   };
 
   const handleSubmit = () => {
-    submitContribution(amount);
-    setTimeout(() => {
-      router.push('/crowdloan/?step=5');
-    }, 5000);
+    const numericAccount = parseFloat(amount);
+    if (!isNaN(numericAccount)) {
+      submitContribution(numericAccount);
+    }
   };
+
+  useEffect(() => {
+    if (progress === 'completed') {
+      router.push({
+        pathname: '/crowdloan',
+        query: { step: 5 },
+      });
+    }
+  }, [progress, router]);
+
+  useEffect(() => {
+    if (tx) {
+      onContribute({
+        amount: amount,
+        address: currentAccount!.address,
+        tx,
+      });
+    }
+  }, [tx, amount, currentAccount, onContribute]);
 
   return (
     <>
@@ -41,14 +54,14 @@ export function ContributeStep() {
       <div className="my-8 max-w-4xl">
         <div className="rounded bg-gray-50 p-6">
           <div>
-            {'Your KSM address: '}
-            <span className="text-sm font-bold text-gray-700">{account?.address}</span>
+            {'Your address: '}
+            <span className="text-sm font-bold text-gray-700">{currentAccount?.address}</span>
           </div>
           <div className="mt-4">
             <input
-              type="number"
+              type="text"
               onChange={handleChange}
-              value={Boolean(amount) ? amount : ''}
+              value={amount}
               className="w-96 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-gray-400"
               placeholder="Enter amount KSM to contribute"
             />
@@ -56,11 +69,12 @@ export function ContributeStep() {
         </div>
       </div>
       <div className="my-8">
-        <Button onClick={handleSubmit}>Sign and send</Button>
-      </div>
-      <div>
-        <pre>Current step: {progress}</pre>
+        <Button onClick={handleSubmit} disabled={progress === 'loading'}>
+          {progress === 'loading' ? 'Submitting...' : 'Sign and send'}
+        </Button>
       </div>
     </>
   );
-}
+};
+
+export default ContributeStep;

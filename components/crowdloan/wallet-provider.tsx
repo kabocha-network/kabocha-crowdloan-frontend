@@ -1,10 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import dynamic from 'next/dynamic';
 import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
-
-const AppSubstraHooksProvider = dynamic(() => import('./../../providers/substra-provider'), {
-  ssr: false,
-});
 
 type WalletContextProps = {
   account: InjectedAccountWithMeta | null;
@@ -20,11 +15,7 @@ type WalletProviderProps = {
 export function WalletProvider({ children }: WalletProviderProps) {
   const [account, setAccount] = useState<InjectedAccountWithMeta | null>(null);
 
-  return (
-    <AppSubstraHooksProvider>
-      <WalletContext.Provider value={{ account, setAccount }}>{children}</WalletContext.Provider>
-    </AppSubstraHooksProvider>
-  );
+  return <WalletContext.Provider value={{ account, setAccount }}>{children}</WalletContext.Provider>;
 }
 
 export const useWallet = () => {

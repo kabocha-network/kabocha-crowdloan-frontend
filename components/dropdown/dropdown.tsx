@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 type DropdownProps = {
-  options: Array<{ label: string; value: string }>;
+  options: Array<{ label: string; value: string; selected?: boolean }>;
   onChange: (value: string) => void;
 };
 
@@ -19,7 +19,7 @@ export function Dropdown({ options, onChange }: DropdownProps) {
       onChange={handleChange}
     >
       {options.map((option) => (
-        <option value={option.value} key={option.value}>
+        <option value={option.value} key={option.value} selected={option.selected}>
           {option.label}
         </option>
       ))}

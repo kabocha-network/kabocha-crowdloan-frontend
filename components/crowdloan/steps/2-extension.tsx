@@ -1,28 +1,30 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { usePolkadotExtension } from '@substra-hooks/core';
+
+import { useSubstrate } from '../../../providers/substrate-context';
 
 import { Button } from '../../button/button';
 import { Link } from '../../link/link';
 
-export function ExtensionStep() {
-  const { w3enable, w3Enabled } = usePolkadotExtension();
+const ExtensionStep = () => {
+  const { web3enable, web3enabled } = useSubstrate();
   const router = useRouter();
 
   useEffect(() => {
-    if (w3Enabled) {
+    if (web3enabled) {
       router.push({
         pathname: '/crowdloan',
         query: { step: 3 },
       });
     }
-  }, [router, w3Enabled]);
+  }, [router, web3enabled]);
 
-  const activateExtension = () => {
-    if (!w3Enabled) {
-      w3enable();
+  const activateExtension = async () => {
+    if (!web3enabled) {
+      console.log('Activating Polkadot{.js} extension');
+      await web3enable();
     } else {
-      console.log('Extension is already activated');
+      console.log('Polkadot{.js} extension is already activated. Skipping to next step.');
     }
   };
 
@@ -42,7 +44,7 @@ export function ExtensionStep() {
       </div>
 
       <div className="my-8">
-        {w3Enabled ? (
+        {web3enabled ? (
           <p>{'Your wallet is connected!'}</p>
         ) : (
           <Button onClick={activateExtension}>Connect with {'Polkadot{.js}'}</Button>
@@ -50,4 +52,6 @@ export function ExtensionStep() {
       </div>
     </>
   );
-}
+};
+
+export default ExtensionStep;

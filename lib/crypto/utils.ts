@@ -1,9 +1,23 @@
 import { decodeAddress, signatureVerify } from '@polkadot/util-crypto';
-import { u8aToHex } from '@polkadot/util';
+import { u8aToHex, stringToHex } from '@polkadot/util';
 import { web3FromSource } from '@polkadot/extension-dapp';
 import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
-import { stringToHex } from '@polkadot/util';
-import keyring from '@polkadot/ui-keyring';
+import { ApiPromise, WsProvider } from '@polkadot/api';
+
+import BN from 'bn.js';
+
+import { apiProviderConfig } from '../../config';
+
+let api: ApiPromise;
+
+export async function getApi() {
+  const wsProvider = new WsProvider(apiProviderConfig.popart.wsProviderUrl);
+  if (!api) {
+    api = await ApiPromise.create({ provider: wsProvider });
+  }
+
+  return api;
+}
 
 export function isValidSignature(signedMessage: string, signature: string, address: string) {
   const publicKey = decodeAddress(address);
@@ -38,3 +52,25 @@ export async function signMessage(message: string, currentAccount: InjectedAccou
     return null;
   }
 }
+
+type EXtrinsicResult = {
+  isSuccess: boolean;
+  hash: string;
+  errorMessage?: string;
+};
+
+export async function getSignedApi(currentAccount: InjectedAccountWithMeta) {
+  const api = await getApi();
+  const injector = await web3FromSource(currentAccount.meta.source);
+  api.setSigner(injector.signer);
+
+  return api;
+}
+
+export const getBigNumberAmount = (amount: number, chainDecimals: number[]) => {
+  const decims = new BN(chainDecimals);
+  const factor = new BN(10).pow(decims);
+  const bnAmount = new BN(amount).mul(factor);
+
+  return bnAmount;
+};
