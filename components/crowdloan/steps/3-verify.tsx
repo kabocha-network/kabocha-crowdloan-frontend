@@ -1,6 +1,3 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-
 import { Button } from '../../button/button';
 import { Dropdown } from '../../dropdown/dropdown';
 import { Link } from '../../link/link';
@@ -15,14 +12,19 @@ const defaultOptions = {
 
 const MESSAGE = 'I am signing this message to prove that I am a human.';
 
-export default function VerifyStep() {
-  const router = useRouter();
+type VerifyStepProps = {
+  onStepComplete: () => void;
+};
+
+export function VerifyStep({ onStepComplete }: VerifyStepProps) {
   const { accounts, currentAccount, setCurrentAccount } = useSubstrate();
 
   const handleChange = (value: string) => {
     const account = accounts?.find((a) => a.address === value);
     if (account) {
       setCurrentAccount(account);
+    } else {
+      setCurrentAccount(null);
     }
   };
 
@@ -31,7 +33,6 @@ export default function VerifyStep() {
     ...accounts.map((account) => ({
       label: `${account.meta.name} (${account.address})`,
       value: account.address,
-      selected: account.address === currentAccount?.address,
     })),
   ];
 
@@ -41,11 +42,10 @@ export default function VerifyStep() {
     }
 
     try {
-      await signMessage(MESSAGE, currentAccount);
-      router.push({
-        pathname: '/crowdloan',
-        query: { step: 4 },
-      });
+      const message = await signMessage(MESSAGE, currentAccount);
+      if (message) {
+        onStepComplete();
+      }
     } catch (e) {
       console.error('Error signing message', e);
     }
@@ -56,8 +56,9 @@ export default function VerifyStep() {
       <div className="prose prose-xl">
         <h2>Step 3: Choose and verify account</h2>
         <p>
-          We ask you to select the <Link href="https://kusama.network/">Kusama</Link> address you will use to fund your
-          crowdloan contribution. The KSM you plan to use must be unlocked and transferable.
+          We ask you to select the <Link href="https://kusama.network/">Kusama</Link> address you
+          will use to fund your crowdloan contribution. The KSM you plan to use must be unlocked and
+          transferable.
         </p>
         <p>
           We will ask you to sign a message to verify your ownership of the account.
@@ -68,11 +69,19 @@ export default function VerifyStep() {
       <div className="my-8 max-w-3xl">
         <div className="rounded bg-gray-50 p-6">
           <div className="my-2">Available accounts:</div>
-          {accounts?.length && <Dropdown options={accountOptions} onChange={handleChange} />}
+          {accounts?.length ? (
+            <Dropdown
+              options={accountOptions}
+              onChange={handleChange}
+              defaultValue={accountOptions[0].value}
+            />
+          ) : (
+            <div className="text-sm text-gray-600">No accounts available!</div>
+          )}
         </div>
       </div>
       <div className="my-8">
-        <Button onClick={handleVerify} disabled={currentAccount === null}>
+        <Button onClick={handleVerify} disabled={!currentAccount}>
           Verify account
         </Button>
       </div>

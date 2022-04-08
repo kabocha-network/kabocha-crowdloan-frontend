@@ -5,13 +5,14 @@ import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
 import BN from 'bn.js';
-
-import { apiProviderConfig } from '../../config';
+import { getCurrentApiProviderConfig } from '../../config';
 
 let api: ApiPromise;
 
 export async function getApi() {
-  const wsProvider = new WsProvider(apiProviderConfig.popart.wsProviderUrl);
+  const apiConfig = getCurrentApiProviderConfig();
+  const wsProvider = new WsProvider(apiConfig.wsProviderUrl);
+
   if (!api) {
     api = await ApiPromise.create({ provider: wsProvider });
   }
@@ -39,7 +40,6 @@ export async function signMessage(message: string, currentAccount: InjectedAccou
       });
 
       const verification = isValidSignature(message, signature, currentAccount.address);
-
       if (verification) {
         return signature;
       } else {
@@ -48,7 +48,8 @@ export async function signMessage(message: string, currentAccount: InjectedAccou
     } else {
       throw new Error('Error while signing message!');
     }
-  } finally {
+  } catch (error) {
+    console.error(error);
     return null;
   }
 }

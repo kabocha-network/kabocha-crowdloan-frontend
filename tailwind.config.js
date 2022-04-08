@@ -14,6 +14,7 @@ module.exports = {
       gray: Object.assign({}, colors.gray, {
         100: '#F7F7F7',
       }),
+      indigo: Object.assign({}, colors.indigo),
     },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],

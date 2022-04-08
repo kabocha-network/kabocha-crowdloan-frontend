@@ -1,23 +1,22 @@
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 import { useSubstrate } from '../../../providers/substrate-context';
 
 import { Button } from '../../button/button';
 import { Link } from '../../link/link';
 
-const ExtensionStep = () => {
+type ExtensionStepProps = {
+  onStepComplete: () => void;
+};
+
+export function ExtensionStep({ onStepComplete }: ExtensionStepProps) {
   const { web3enable, web3enabled } = useSubstrate();
-  const router = useRouter();
 
   useEffect(() => {
     if (web3enabled) {
-      router.push({
-        pathname: '/crowdloan',
-        query: { step: 3 },
-      });
+      onStepComplete();
     }
-  }, [router, web3enabled]);
+  }, [web3enabled, onStepComplete]);
 
   const activateExtension = async () => {
     if (!web3enabled) {
@@ -33,8 +32,9 @@ const ExtensionStep = () => {
       <div className="prose prose-xl">
         <h2>Step 2: Allow browser extension</h2>
         <p>
-          In order to process the crowdloan submission, this application needs to communicate with the{' '}
-          <Link href="https://polkadot.js.org/extension/">{'Polkadot{.js}'}</Link> extension in your browser.
+          In order to process the crowdloan submission, this application needs to communicate with
+          the <Link href="https://polkadot.js.org/extension/">{'Polkadot{.js}'}</Link> extension in
+          your browser.
         </p>
         <p>
           This step only allows the Kabocha application to connect with the extension.
@@ -52,6 +52,4 @@ const ExtensionStep = () => {
       </div>
     </>
   );
-};
-
-export default ExtensionStep;
+}

@@ -12,7 +12,7 @@ type ApiProviderConfig = {
   wsProviderUrl: string;
 };
 
-export const apiProviderConfig: Record<string, ApiProviderConfig> = {
+const apiProviderConfig: Record<string, ApiProviderConfig> = {
   [NETWORKS.popart]: {
     id: NETWORKS.popart,
     parachainId: 2007,
@@ -23,4 +23,15 @@ export const apiProviderConfig: Record<string, ApiProviderConfig> = {
     parachainId: 2113,
     wsProviderUrl: 'wss://kusama-rpc.polkadot.io',
   },
+};
+
+// try to determine config based on current url
+export const getCurrentApiProviderConfig = (): ApiProviderConfig => {
+  if (typeof window !== 'undefined') {
+    if (window.location.hostname.match(/kabocha.network/)) {
+      return apiProviderConfig.kusama;
+    }
+  }
+
+  return apiProviderConfig.popart;
 };

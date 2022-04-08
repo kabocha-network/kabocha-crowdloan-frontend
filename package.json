@@ -12,9 +12,11 @@
   "dependencies": {
     "@polkadot/api": "^7.10.1",
     "@polkadot/extension-dapp": "^0.42.7",
+    "@polkadot/react-identicon": "^1.4.1",
     "@polkadot/ui-keyring": "^1.1.1",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
+    "@types/react-dom": "^18.0.0",
     "autoprefixer": "^10.4.2",
     "bn.js": "^5.2.0",
     "next": "12.1.0",

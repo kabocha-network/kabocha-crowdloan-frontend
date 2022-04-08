@@ -25,7 +25,7 @@ type SubstrateContextType = {
 
 export const SubstrateContext = createContext<SubstrateContextType | null>(null);
 
-function SubstrateProvider(props: SubstrateProviderProps) {
+export function SubstrateProvider(props: SubstrateProviderProps) {
   const { children } = props;
 
   const [web3enabled, setWeb3enabled] = useState(false);
@@ -43,9 +43,9 @@ function SubstrateProvider(props: SubstrateProviderProps) {
       const allAccounts = await web3Accounts();
       setAccounts(allAccounts);
       // by default, select the first account if available
-      if (allAccounts[0]) {
-        setCurrentAccount(allAccounts[0]);
-      }
+      // if (allAccounts[0]) {
+      //   setCurrentAccount(allAccounts[0]);
+      // }
     }
   }, []);
 
@@ -73,7 +73,9 @@ function SubstrateProvider(props: SubstrateProviderProps) {
     web3enabled,
   };
 
-  return <SubstrateContext.Provider value={initialContextValue}>{children}</SubstrateContext.Provider>;
+  return (
+    <SubstrateContext.Provider value={initialContextValue}>{children}</SubstrateContext.Provider>
+  );
 }
 
 export default SubstrateProvider;

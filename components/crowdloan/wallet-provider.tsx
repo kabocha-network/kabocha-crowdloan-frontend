@@ -15,7 +15,9 @@ type WalletProviderProps = {
 export function WalletProvider({ children }: WalletProviderProps) {
   const [account, setAccount] = useState<InjectedAccountWithMeta | null>(null);
 
-  return <WalletContext.Provider value={{ account, setAccount }}>{children}</WalletContext.Provider>;
+  return (
+    <WalletContext.Provider value={{ account, setAccount }}>{children}</WalletContext.Provider>
+  );
 }
 
 export const useWallet = () => {

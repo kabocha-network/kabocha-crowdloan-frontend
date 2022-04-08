@@ -12,19 +12,39 @@ export function LayoutHeader() {
             </a>
           </Link>
           <nav className="flex flex-r gap-x-8">
-            <a href="https://kabocha.network" className="p-2" target="_blank" rel="noreferrer noopener">
+            <a
+              href="https://kabocha.network"
+              className="p-2"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Kabocha
             </a>
             <a href="https://edgewa.re" className="p-2" target="_blank" rel="noreferrer noopener">
               Edgeware
             </a>
-            <a href="https://discord.gg/sC2GdPwrNF" className="p-2" target="_blank" rel="noreferrer noopener">
+            <a
+              href="https://discord.gg/sC2GdPwrNF"
+              className="p-2"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Community
             </a>
-            <a href="https://kabocha.network" className="p-2" target="_blank" rel="noreferrer noopener">
+            <a
+              href="https://kabocha.network"
+              className="p-2"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Technology
             </a>
-            <a href="https://github.com/Decent-Partners" className="p-2" target="_blank" rel="noreferrer noopener">
+            <a
+              href="https://github.com/Decent-Partners"
+              className="p-2"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               Github
             </a>
             <Link href="/crowdloan">

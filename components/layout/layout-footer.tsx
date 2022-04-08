@@ -24,7 +24,9 @@ export function LayoutFooter() {
             </a>
           </span>
         </div>
-        <div className="text-center text-gray-500 py-2">Kabocha Network - Playground of possibilities!</div>
+        <div className="text-center text-gray-500 py-2">
+          Kabocha Network - Playground of possibilities!
+        </div>
       </div>
     </footer>
   );

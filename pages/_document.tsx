@@ -13,6 +13,7 @@ export default function Document() {
       </Head>
       <body className="text-black">
         <Main />
+        <div id="modal-root" />
         <NextScript />
       </body>
     </Html>
