@@ -6,10 +6,11 @@ type DropdownProps = {
 };
 
 export function Dropdown({ options, onChange }: DropdownProps) {
-  const [value, setValue] = useState('');
+  const [_, setValue] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setValue(e.target.value);
+    onChange(e.target.value);
   };
 
   return (

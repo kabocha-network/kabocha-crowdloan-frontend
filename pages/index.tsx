@@ -6,11 +6,11 @@ import { Layout } from '../components/layout/layout';
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className="mx-auto max-w-2xl">
+      <div className="py-8">
         <h1 className="text-6xl font-bold my-8">
           Welcome to <a href="https://kabocha.network">Kabocha!</a>
         </h1>
-        <p className="text-xl">
+        <p className="text-xl max-w-4xl">
           Kabocha is a holistic self-evolving community parachain project spawned from Edgeware, accelerating founders,
           creators and teams building new public infrastructure.
         </p>

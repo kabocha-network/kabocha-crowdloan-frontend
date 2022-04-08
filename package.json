@@ -12,7 +12,9 @@
   "dependencies": {
     "@polkadot/api": "^7.10.1",
     "@polkadot/extension-dapp": "^0.42.7",
+    "@polkadot/ui-keyring": "^1.1.1",
     "@substra-hooks/core": "^0.0.41",
+    "@tailwindcss/forms": "^0.4.0",
     "autoprefixer": "^10.4.2",
     "next": "12.1.0",
     "postcss": "^8.4.7",

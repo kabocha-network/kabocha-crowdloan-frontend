@@ -3,15 +3,9 @@ import dynamic from 'next/dynamic';
 
 import '../styles/globals.css';
 
-const AppSubstraHooksProvider = dynamic(() => import('./../providers/substra-provider'), {
-  ssr: false,
-});
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AppSubstraHooksProvider>
-      <Component {...pageProps} />
-    </AppSubstraHooksProvider>
+    <Component {...pageProps} />
   );
 }
 
