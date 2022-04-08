@@ -6,6 +6,7 @@ import { WalletProvider } from './wallet-provider';
 import { IntroStep } from './steps/1-intro';
 import { ExtensionStep } from './steps/2-extension';
 import { ContributeStep } from './steps/4-contribute';
+import { ConfirmationStep } from './steps/5-confirmation';
 
 const VerifyStep = dynamic(() => import('./steps/3-verify'), { ssr: false })
 
@@ -19,6 +20,7 @@ export function Crowdloan() {
       {step === 2 && <ExtensionStep />}
       {step === 3 && <VerifyStep />}
       {step === 4 && <ContributeStep />}
+      {step === 5 && <ConfirmationStep />}
     </WalletProvider>
   );
 }

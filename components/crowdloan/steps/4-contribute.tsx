@@ -12,14 +12,6 @@ export function ContributeStep() {
 
   const { progress, account, submitContribution } = useCrowdloan()
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(parseFloat(e.target.value))
-  }
-
-  const handleSubmit = () => {
-    submitContribution(amount)
-  }
-
   useEffect(() => {
     if (!w3Enabled) {
       router.push({
@@ -29,15 +21,27 @@ export function ContributeStep() {
     }
   }, [router, w3Enabled]);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(parseFloat(e.target.value))
+  }
+
+  const handleSubmit = () => {
+    submitContribution(amount)
+    setTimeout(() => {
+      router.push('/crowdloan/?step=5')
+    }, 5000)
+  }
+
   return (
     <>
-      <h2 className="text-2xl font-bold my-4">Step 4: Contribute</h2>
-      <p className="max-w-2xl mb-2">
-        Choose the amount of KSM funds you want to contribute to the crowdloan.
-      </p>
-
-      <div className="my-4 max-w-4xl">
-        <div className="rounded bg-slate-50 p-4">
+      <div className="prose prose-xl">
+        <h2>Step 4: Contribute</h2>
+        <p>
+          Choose the amount of KSM funds you want to contribute to the crowdloan.
+        </p>
+      </div>
+      <div className="my-8 max-w-4xl">
+        <div className="rounded bg-slate-50 p-6">
           <div>
             {'Your KSM address: '}
             <span className="text-sm font-bold text-gray-700">
@@ -45,14 +49,14 @@ export function ContributeStep() {
             </span>
           </div>
           <div className="mt-4">
-            <input type="number" onChange={handleChange} value={amount === 0 ? '' : amount}
+            <input type="number" onChange={handleChange} value={Boolean(amount) ? amount : ''}
               className="w-96 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-slate-400"
               placeholder='Enter amount KSM to contribute'
             />
           </div>
         </div>
       </div>
-      <div className="my-4">
+      <div className="my-8">
         <Button onClick={handleSubmit}>Sign and send</Button>
       </div>
       <div>

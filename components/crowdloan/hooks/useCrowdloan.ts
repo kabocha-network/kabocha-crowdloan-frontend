@@ -1,93 +1,75 @@
-import { useCallback, useReducer, useState } from "react";
+import { useApiProvider } from "@substra-hooks/core";
+import { useState } from "react";
 import { useWallet } from "../wallet-provider";
 
-// const asyncFn = async () => {
-//   try {
-//     setLoading(true)
-//     setProgressValue(30)
-//     setProgressText('Signature acquired. Signing extrinsic... ')
-//     const Amount = new BigNumber(amount).times(10 ** Decimals).toNumber()
+const PARACHAIN_ID = '2113'
 
-//     // const m = keyring.decodeAddress(current.address)
-//     // const memo = u8aToHex(m)
-
-//     // const txs = api.tx.utility.batchAll([
-//     //   api.tx.crowdloan.contribute(parachainId, Amount, null),
-//     //   api.tx.crowdloan.addMemo(parachainId, memo)
-//     // ])
-//     const tx = api.tx.crowdloan.contribute(parachainId, Amount, null)
-//     unsub = await tx.signAndSend(current.address, (result) => {
-
-//       const { events = [], status } = result
-
-//       if (status.isReady) {
-//         toast({
-//           description: 'Waiting...',
-//           status: 'info',
-//           duration: null,
-//           id: 'ready',
-//           position: 'top'
-//         })
-//         setProgressValue(50)
-//         setProgressText('Ready')
-//       } else if (status.isInBlock || status.isFinalized) {
-//         events.forEach(({ event }) => {
-
-//           if (event.method === 'ExtrinsicSuccess') {
-
-//             setContributed({
-//               address: current.address,
-//               amount,
-//               hash: tx.hash.toHex()
-//             })
-//             setCompleted(6)
-//           } else if (event.method === 'ExtrinsicFailed') {
-//             const { data: [error] } = event
-
-//             if ((error as any).isModule) {
-//               // for module errors, we have the section indexed, lookup
-//               const decoded = api.registry.findMetaError((error as any).asModule);
-//               const { docs } = decoded;
-
-//               toast({
-//                 description:`${docs.join(' ')}`,
-//                 status:'error',
-//                 position:'top'
-//               })
-//             } else {
-//               // Other, CannotLookup, BadOrigin, no extra info
-//               console.log(error.toString());
-//               toast({
-//                 description:error.toString(),
-//                 status:'error',
-//                 position:'top'
-//               })
-//             }
-//           }
-//         })
-//         toast.close('ready')
-//         setLoading(false)
-//         unsub()
-//       }
-//     })
-//   } catch (error: any) {
-//     toast({
-//       status: 'error',
-//       description: error.message
-//     })
-//     setLoading(false)
-//   }
-// }
-// asyncFn()
 type ContributionProgress = 'pending' | 'loading' | 'completed' | 'error'
 
 export function useCrowdloan() {
+  const api = useApiProvider()
   const { account } = useWallet()
+
   const [progress, setProgress] = useState<ContributionProgress>('pending')
 
-  const submitContribution = useCallback((amount: number) => {
+  const submitContribution = async (amount: number) => {
     setProgress('loading')
-  }, [setProgress])
+
+    if (!api) {
+      setProgress('error')
+      console.error('API not available')
+      return
+    }
+
+    if (!account) {
+      setProgress('error')
+      console.error('Account not available')
+      return
+    }
+
+    debugger;
+
+    try {
+      // create the transaction
+      const tx = api.tx.crowdloan.contribute(PARACHAIN_ID, amount, null)
+      const unsubscribe = await tx.signAndSend(account.address, ({ status, events, dispatchError}) => {
+        // watch for status changes
+        console.log({
+          status,
+          events,
+          dispatchError
+        })
+
+        if (status.isReady) {
+          console.log({ status })
+          console.log('Waiting...')
+        } else if (status.isInBlock || status.isFinalized) {
+          events.forEach(({ event }) => {
+            if (event.method === 'ExtrinsicSuccess') {
+              console.log({
+                method: 'ExtrinsicSuccess',
+                address: account.address,
+                amount,
+                hash: tx.hash.toHex()
+              })
+            } else if (event.method === 'ExtrinsicFailed') {
+              const { data: [error] } = event
+              console.log({
+                method: 'ExtrinsicFailed',
+                error
+              })
+            }
+          })
+
+          // unsubscribe
+          unsubscribe()
+        }
+      })
+    } catch (error: any) {
+      setProgress('error'),
+      console.error('Error occurred: ', error.message || 'Unknown error')
+    }
+  }
 
   return {
     account,
