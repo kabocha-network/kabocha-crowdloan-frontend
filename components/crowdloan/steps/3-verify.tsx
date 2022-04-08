@@ -70,7 +70,7 @@ export default function VerifyStep() {
         </p>
       </div>
       <div className="my-8 max-w-3xl">
-        <div className="rounded bg-slate-50 p-6">
+        <div className="rounded bg-gray-50 p-6">
           <div className="my-2">Available accounts:</div>
           {accounts?.length && <Dropdown options={accountOptions} onChange={handleChange} />}
         </div>

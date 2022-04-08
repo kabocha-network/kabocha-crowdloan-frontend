@@ -41,7 +41,7 @@ export function ContributeStep() {
         </p>
       </div>
       <div className="my-8 max-w-4xl">
-        <div className="rounded bg-slate-50 p-6">
+        <div className="rounded bg-gray-50 p-6">
           <div>
             {'Your KSM address: '}
             <span className="text-sm font-bold text-gray-700">
@@ -50,7 +50,7 @@ export function ContributeStep() {
           </div>
           <div className="mt-4">
             <input type="number" onChange={handleChange} value={Boolean(amount) ? amount : ''}
-              className="w-96 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-slate-400"
+              className="w-96 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-gray-400"
               placeholder='Enter amount KSM to contribute'
             />
           </div>

@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 export function LayoutHeader() {
   return (
-    <header id="header" className="border-b">
+    <header id="header" className="border-b border-gray-100">
       <div className="md:container md:mx-auto">
         <div className="flex flex-row justify-between items-center py-2">
           <Link href="/">
-            <a className="text-2xl font-bold text-gray-800 -ml-8">
+            <a className="text-2xl font-bold -ml-8">
               <Image src="/icons/kabocha-logo.png" alt="Kabocha" width={96} height={96} />
             </a>
           </Link>
@@ -28,7 +28,7 @@ export function LayoutHeader() {
               Github
             </a>
             <Link href="/crowdloan">
-              <a className="mx-2 p-2">Crowdloan</a>
+              <a className="mx-2 p-2 px-8 rounded-md bg-yellow font-semibold">Crowdloan</a>
             </Link>
           </nav>
         </div>

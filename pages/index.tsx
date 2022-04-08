@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <div className="py-16 grid grid-cols-2 gap-16">
           <div className="py-16">
             <h1 className="text-6xl font-bold my-8">
-              Welcome to <a href="https://kabocha.network">Kabocha!</a>
+              Kabocha Crowdloan
             </h1>
             <p className="text-xl my-4">
               Kabocha is a holistic self-evolving community parachain project spawned from Edgeware,
@@ -31,10 +31,12 @@ const Home: NextPage = () => {
           <FAQ>
             <h2 className="text-4xl font-semibold my-8">FAQ</h2>
             <FAQItem question="What is Kabocha?">
-              <p>Kabocha is a holistic self-evolving community parachain project spawned from Edgeware,
-              accelerating founders, creators and teams building new public infrastructure.
-              A decentralised community experiencing itself.<br/>
-              We’re creating a different reality, a new way of collaborating and sharing value.</p>
+              <p>
+                Kabocha is a holistic self-evolving community parachain project spawned from Edgeware,
+                accelerating founders, creators and teams building new public infrastructure.
+                A decentralised community experiencing itself.<br/>
+                We’re creating a different reality, a new way of collaborating and sharing value.
+              </p>
             </FAQItem>
             <FAQItem question="How do I contribute to the crowdloan?">
               <p>

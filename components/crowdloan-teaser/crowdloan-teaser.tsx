@@ -8,10 +8,10 @@ export const CrowdloanTeaser = () => {
   const progress = currentAmount / totalAmount * 100
 
   return (
-    <div className="p-0 overflow-clip rounded-xl bg-slate-100 divide-y divide-gray-200">
+    <div className="p-0 overflow-clip rounded-xl bg-gray-100 divide-y divide-gray-200">
         {/* Progress bar with amount of raised KSM */}
         <div className="p-8">
-          <span className="block py-2 text-lg text-slate-400">Raised till now:</span>
+          <span className="block py-2 text-lg text-gray-400">Raised till now:</span>
           <ProgressBar progress={progress} />
           <div className="flex flex-row justify-between py-4">
             <span className="text-3xl font-semibold">{currentAmount} of {totalAmount} KSM</span>
@@ -21,8 +21,8 @@ export const CrowdloanTeaser = () => {
 
         {/* Time left */}
         <div className="p-8">
-          <span className="block py-2 text-lg text-slate-400">Ends in:</span>
-          <span className="block text-3xl font-semibold">2 days 8 hours 5 minutes</span>
+          <span className="block py-2 text-lg text-gray-400">Ends in:</span>
+          <span className="block text-3xl font-semibold">16 days 8 hours 5 minutes</span>
         </div>
 
         {/* Button to contribute */}
