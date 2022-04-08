@@ -1,4 +1,3 @@
-
 import { Button } from '../../button/button';
 import { Link } from '../../link/link';
 
@@ -8,7 +7,8 @@ export function IntroStep() {
       <div className="prose prose-xl">
         <h2>Step 1: Intro</h2>
         <p>
-          Welcome to the Kabocha Crowdloan Campaign.<br/>
+          Welcome to the Kabocha Crowdloan Campaign.
+          <br />
           This wizard will guide you to the steps of contributing to our crowdloan campaign.
         </p>
         <p>

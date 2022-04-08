@@ -23,7 +23,11 @@ export function Button({ children, href, onClick, disabled = false }: ButtonProp
   };
 
   return (
-    <button className="font-bold text-xl py-4 px-32 rounded-lg bg-black text-yellow disabled:bg-gray-200 disabled:text-gray-600 hover:bg-yellow hover:text-black" onClick={handleClick} disabled={disabled}>
+    <button
+      className="font-bold text-xl py-4 px-32 rounded-lg bg-black text-yellow disabled:bg-gray-200 disabled:text-gray-600 hover:bg-yellow hover:text-black"
+      onClick={handleClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

@@ -4,7 +4,7 @@ type LinkProps = {
   href: string;
   children: React.ReactNode;
   className?: string;
-}
+};
 
 export function Link({ href, children, className = '' }: LinkProps) {
   const linksClassName = `${className} font-semibold underline decoration-yellow hover:bg-yellow`;
@@ -15,7 +15,7 @@ export function Link({ href, children, className = '' }: LinkProps) {
       <NextLink href={href}>
         <a className={linksClassName}>{children}</a>
       </NextLink>
-    )
+    );
   }
 
   // return normal anchor for external links
@@ -23,6 +23,5 @@ export function Link({ href, children, className = '' }: LinkProps) {
     <a href={href} className={linksClassName} rel="external noopener noreferrer" target="_blank">
       {children}
     </a>
-  )
-
+  );
 }

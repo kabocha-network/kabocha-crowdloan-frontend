@@ -35,7 +35,8 @@ export function ExtensionStep() {
           <Link href="https://polkadot.js.org/extension/">{'Polkadot{.js}'}</Link> extension in your browser.
         </p>
         <p>
-          This step only allows the Kabocha application to connect with the extension.<br />
+          This step only allows the Kabocha application to connect with the extension.
+          <br />
           You will still have the ability to sign or cancel any transactions.
         </p>
       </div>

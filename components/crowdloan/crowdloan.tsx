@@ -8,7 +8,7 @@ import { ExtensionStep } from './steps/2-extension';
 import { ContributeStep } from './steps/4-contribute';
 import { ConfirmationStep } from './steps/5-confirmation';
 
-const VerifyStep = dynamic(() => import('./steps/3-verify'), { ssr: false })
+const VerifyStep = dynamic(() => import('./steps/3-verify'), { ssr: false });
 
 export function Crowdloan() {
   const router = useRouter();

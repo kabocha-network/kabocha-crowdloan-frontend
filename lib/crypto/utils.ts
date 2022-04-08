@@ -1,7 +1,7 @@
 import { decodeAddress, signatureVerify } from '@polkadot/util-crypto';
 import { u8aToHex } from '@polkadot/util';
 import { web3FromSource } from '@polkadot/extension-dapp';
-import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types'
+import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import { stringToHex } from '@polkadot/util';
 import keyring from '@polkadot/ui-keyring';
 
@@ -21,7 +21,7 @@ export async function signMessage(message: string, currentAccount: InjectedAccou
       const { signature } = await signRaw({
         address: currentAccount.address,
         data: stringToHex(message),
-        type: 'bytes'
+        type: 'bytes',
       });
 
       const verification = isValidSignature(message, signature, currentAccount.address);
@@ -29,12 +29,12 @@ export async function signMessage(message: string, currentAccount: InjectedAccou
       if (verification) {
         return signature;
       } else {
-        throw new Error('Error while verifying message signature!')
+        throw new Error('Error while verifying message signature!');
       }
     } else {
-      throw new Error('Error while signing message!')
+      throw new Error('Error while signing message!');
     }
   } finally {
-    return null
+    return null;
   }
 }
