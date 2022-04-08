@@ -48,7 +48,9 @@ export function LayoutHeader() {
               Github
             </a>
             <Link href="/">
-              <a className="mx-2 p-2 px-8 rounded-md bg-yellow font-semibold">Crowdloan</a>
+              <a className="mx-2 p-2 px-8 rounded-md bg-primary text-white font-semibold hover:bg-black">
+                Crowdloan
+              </a>
             </Link>
           </nav>
         </div>

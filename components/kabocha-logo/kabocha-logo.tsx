@@ -6,5 +6,5 @@ type KabochaLogoProps = {
 };
 
 export const KabochaLogo = ({ width, height }: KabochaLogoProps) => {
-  return <Image src="/icons/kabocha-logo.png" alt="Kabocha" width={width} height={height} />;
+  return <Image src="/icons/kabocha-logo.svg" alt="Kabocha" width={width} height={height} />;
 };

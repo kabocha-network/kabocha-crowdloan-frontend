@@ -10,7 +10,7 @@ module.exports = {
     colors: {
       white: colors.white,
       black: '#151515',
-      yellow: '#FFF85B',
+      primary: '#c2276a',
       gray: Object.assign({}, colors.gray, {
         100: '#F7F7F7',
       }),

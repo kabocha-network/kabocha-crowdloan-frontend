@@ -8,7 +8,7 @@ export const ProgressBar = ({ progress }: ProgressBarProps) => {
   };
   return (
     <div className="rounded-md bg-white overflow-clip">
-      <div className="py-4 p-0.5 rounded-none bg-yellow" style={inlineStyle}></div>
+      <div className="py-4 p-0.5 rounded-none bg-primary" style={inlineStyle}></div>
     </div>
   );
 };
