@@ -16,7 +16,7 @@ export const Modal = ({ children }: ModalProps) => {
     // We assume `modalRoot` exists with '!'
     modalRoot!.appendChild(current);
     return () => void modalRoot!.removeChild(current);
-  }, []);
+  }, [modalRoot]);
 
   return createPortal(
     <div className="w-full h-full fixed left-0 top-0">

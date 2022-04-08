@@ -63,11 +63,13 @@ export function ContributeStep({ onStepComplete }: ContributeStepProps) {
           </div>
         </div>
       </div>
+      {contributionError && (
+        <div className="rounded p-6 bg-red-50 mt-2 text-red-600">{contributionError}</div>
+      )}
       <div className="my-8">
         <Button onClick={handleSubmit} disabled={progress === 'loading'}>
           {progress === 'loading' ? 'Submitting...' : 'Sign and send'}
         </Button>
-        {contributionError && <div className="mt-2 text-red-600">{contributionError}</div>}
       </div>
     </>
   );
