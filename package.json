@@ -10,6 +10,9 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@polkadot/api": "^7.10.1",
+    "@polkadot/extension-dapp": "^0.42.7",
+    "@substra-hooks/core": "^0.0.41",
     "autoprefixer": "^10.4.2",
     "next": "12.1.0",
     "postcss": "^8.4.7",

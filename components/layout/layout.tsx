@@ -16,10 +16,16 @@ export function Layout(props: LayoutProps) {
         <meta name="description" content="Kabocha Crowdloan App" />
         <link rel="icon" href="/icons/kabocha-small-32.png" />
       </Head>
-      <div>
-        <LayoutHeader />
-        <LayoutMain>{props.children}</LayoutMain>
-        <LayoutFooter />
+      <div className="flex flex-col min-h-screen">
+        <div>
+          <LayoutHeader />
+        </div>
+        <div className="flex-grow">
+          <LayoutMain>{props.children}</LayoutMain>
+        </div>
+        <div>
+          <LayoutFooter />
+        </div>
       </div>
     </>
   );
