@@ -1,25 +1,16 @@
-import type { NextPage } from "next";
-import Head from "next/head";
+import type { NextPage } from 'next';
+
+import { Layout } from '../components/layout/layout';
 
 const Home: NextPage = () => {
   return (
-    <div className="container m-auto">
-      <Head>
-        <title>Kabocha Crowdloan App</title>
-        <meta name="description" content="Kabocha Crowdloan App" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout>
+      <h1 className="text-4xl font-bold my-4">
+        Welcome to <a href="https://kabocha.network">Kabocha!</a>
+      </h1>
 
-      <main>
-        <h1 className="text-3xl font-bold">
-          Welcome to <a href="https://kabocha.network">Kabocha!</a>
-        </h1>
-
-        <p>Get started by connecting your wallet.</p>
-      </main>
-
-      <footer>&copy; {new Date().getFullYear()} Kabocha Network</footer>
-    </div>
+      <p>Get started by connecting your wallet.</p>
+    </Layout>
   );
 };
 
