@@ -7,37 +7,24 @@ export function LayoutHeader() {
       <div className="md:container md:mx-auto">
         <div className="flex flex-row justify-between items-center py-2">
           <Link href="/">
-            <a className="text-2xl font-bold -ml-8">
-              <KabochaLogo width="96" height="96" />
+            <a 
+              href="https://kabocha.network"
+              target="_blank"
+              rel="noreferrer noopener" 
+              className="text-2xl font-bold -ml-8">
+              
+              <KabochaLogo width="96" height="96"
+               />
             </a>
           </Link>
           <nav className="flex flex-r gap-x-8">
             <a
-              href="https://kabocha.network"
+              href="https://wiki.kabocha.network"
               className="p-2"
               target="_blank"
               rel="noreferrer noopener"
             >
-              Kabocha
-            </a>
-            <a href="https://edgewa.re" className="p-2" target="_blank" rel="noreferrer noopener">
-              Edgeware
-            </a>
-            <a
-              href="https://discord.gg/sC2GdPwrNF"
-              className="p-2"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Community
-            </a>
-            <a
-              href="https://kabocha.network"
-              className="p-2"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Technology
+              Docs
             </a>
             <a
               href="https://github.com/kabocha-network"
@@ -45,7 +32,7 @@ export function LayoutHeader() {
               target="_blank"
               rel="noreferrer noopener"
             >
-              Github
+              Repo
             </a>
             <Link href="/">
               <a className="mx-2 p-2 px-8 rounded-md bg-primary text-white font-semibold hover:bg-black">
