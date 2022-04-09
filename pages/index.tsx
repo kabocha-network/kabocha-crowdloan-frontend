@@ -16,9 +16,9 @@ const CrowdloanTeaserLive = dynamic(
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className="container max-w-7xl mx-auto">
-        <div className="py-16 grid grid-cols-2 gap-16">
-          <div className="py-16">
+      <div className="container max-w-7xl mx-8 md:mx-auto px-2">
+        <div className="pt-16 mb-4 grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="lg:py-16">
             <h1 className="text-6xl font-bold my-8">Kabocha Crowdloan</h1>
             <p className="text-xl my-4">
               Kabocha is a holistic self-evolving community parachain project spawned from Edgeware,
@@ -30,11 +30,13 @@ const Home: NextPage = () => {
               holding EDG.
             </p>
           </div>
-          <div className="py-16">
-            <CrowdloanTeaserLive />
+          <div className="hidden md:block lg:py-16">
+            <div>
+              <CrowdloanTeaserLive />
+            </div>
           </div>
         </div>
-        <div className="py-8">
+        <div className="lg:py-8">
           <FAQ>
             <h2 className="text-4xl font-semibold my-8">FAQ</h2>
             <FAQItem question="What is Kabocha?">

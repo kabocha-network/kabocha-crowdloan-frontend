@@ -5,22 +5,21 @@ export function LayoutHeader() {
   return (
     <header id="header" className="border-b border-gray-100">
       <div className="md:container md:mx-auto">
-        <div className="flex flex-row justify-between items-center py-2">
+        <div className="flex flex-row justify-between items-center p-4 text-sm">
           <Link href="/">
-            <a 
+            <a
               href="https://kabocha.network"
               target="_blank"
-              rel="noreferrer noopener" 
-              className="text-2xl font-bold -ml-8">
-              
-              <KabochaLogo width="96" height="96"
-               />
+              rel="noreferrer noopener"
+              className="text-2xl font-bold -ml-8"
+            >
+              <KabochaLogo width="48" height="48" />
             </a>
           </Link>
           <nav className="flex flex-r gap-x-8">
             <a
               href="https://wiki.kabocha.network"
-              className="p-2"
+              className="p-2 hover:text-primary"
               target="_blank"
               rel="noreferrer noopener"
             >
@@ -28,7 +27,7 @@ export function LayoutHeader() {
             </a>
             <a
               href="https://github.com/kabocha-network"
-              className="p-2"
+              className="p-2 hover:text-primary"
               target="_blank"
               rel="noreferrer noopener"
             >
