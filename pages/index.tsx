@@ -31,7 +31,6 @@ const Home: NextPage = () => {
             </p>
           </div>
           <div className="py-16">
-            {/* @ts-expect-error */}
             <CrowdloanTeaserLive />
           </div>
         </div>

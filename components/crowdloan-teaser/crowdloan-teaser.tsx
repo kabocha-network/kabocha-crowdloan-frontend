@@ -29,7 +29,6 @@ export const CrowdloanTeaserLive = () => {
 
       {showCrowdloanModal && (
         <Modal>
-          {/* @ts-expect-error */}
           <Crowdloan />
         </Modal>
       )}
