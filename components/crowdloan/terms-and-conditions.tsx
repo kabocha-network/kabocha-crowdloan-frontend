@@ -15,66 +15,38 @@ export const TermsAndConditions = ({ onAccept }: TermsAndConditionsProps) => {
     <div>
       <div className="h-64 bg-gray-100 rounded overflow-y-auto p-4">
         <div className="prose prose-sm">
-          <h2>Terms and Conditions</h2>
+          <h2>Initial Member Record Registration with Kabocha</h2>
+            
           <p>
-            After our Kabocha proposal is accepted by the community, we&rsquo;re aiming to launch
-            Kabocha toward the next batch of Kusama parachain slots. The dates are yet to be
-            confirmed by Parity.
+          This document is the Initial Testimony for Members to sign and seal inorder to gain Initial Membership Status in Kabocha’s jurisdiction.
           </p>
 
           <p>
-            We&rsquo;re currently working through the proposal, and will share it ready for
-            feedback. The process of feedback, participation and contribution is what will make
-            Kabocha an awesome community work of art and craft.
+          The Kabocha Seed NFT in its Genesis Form represents Initial Membership Rights into theNetwork Public of Kabocha.By making this initial Testimony and making a nominal contribution to Kabocha in the form ofLocking KSM in a “Crowdloan” and signing through the Kabocha portal, you are AssignedInitial Membership Rights in the Kabocha Network Public.
+          </p>
+
+          <h2>Jurisdiction</h2>
+          <p>
+          All matters shall be dealt with in the Kabocha jurisdiction under Ucadian Law. Kabocha Network Public is a University True Trust under the Law of Ucadia. Ucadia is the canonical framework of Law where the True Trust is Granted.
           </p>
 
           <p>
-            Kabocha was conceived after an electric party, where Kusama got Edgeware pregnant during
-            the magical evening under a full moon right on the summer solstice.
+          Kabocha Network Public is a Consent and Honour based system, with Intentions of ExpandingBenevolent Consciousness, to Empower People and free them from the shackles andenslavement of the Rulers of the Inferior Systems we were forcibly born into without Consent.
           </p>
 
+          <h2>Testimony</h2>
           <p>
-            Luckily Kusama is only married to a few other chains so there&rsquo;s space for Kabocha
-            to live with Kusuma as a parachain, after the union ritual &ldquo;crowdloan
-            process&rdquo; takes place.
+          You as a Human Being testify to be living, breathing, of sound mind and cognitive ability;You Testify that there is no Intermediary that has any Authority between you and the DivineCreator of all Realms.By entering the Kabocha jurisdiction you Testify to not be functioning in the Role, capacity, ortitle of a citizen, on-duty officer, on-duty government official, of any other Nation or Jurisdictionwhen entering Kabocha sovereign Network Public.Any aforementioned Role, capacity or title from a different jurisdiction has no effect in thejurisdiction of the Kabocha Network Public. The jurisdiction where Kabocha resides is asuperior jurisdiction to any other jurisdiction or society.
           </p>
 
+          <h2>Vow</h2>
           <p>
-            We&rsquo;re hoping Kabocha grows up to be weird, magic and unconventional (like Billie
-            Eilish).
+          You Vow to stay in full Honour, Competence and act in Good Faith.
           </p>
 
-          <p>
-            Before sharing the proposal, we&rsquo;ve been getting some legal advice from
-            pre-cognitive time lords about how we define what we do and the process of
-            implementation, to make sure Kabocha grows up to be a strong and potent pumpkin.
-          </p>
+          <a href="https://singular.app/collectibles/12008862-f2529946857380f250-KABORD-KABOCHA_INITIAL_MEMBERSHIP_TESTIMONY-00000001"> Link to Notarized Record (NFT) </a><br></br>
+          
 
-          <p>
-            Everyone will definitely have ample notice before the crowdloan/auction procedure to get
-            their EDG in order, so try not get your knickers in a twist.
-          </p>
-
-          <p>
-            My technical duty is working on Pumpkin chain, which is Kabocha&rsquo;s testnet, to work
-            through launch procedure, as well as being a sandpit for future projects that want to
-            play with Kabocha.
-          </p>
-
-          <p>
-            Like the movie Inception, I&rsquo;ll go with Rich in to a deep dream and we&rsquo;ll
-            spend 50 years in a single moment to perfect this proposal, if I have time I can design
-            my own language and write stories about Gavin Wood.
-          </p>
-
-          <p>
-            We&rsquo;ll let you know when it&rsquo;s ready. In the meantime you are welcome to make
-            your own proposal to the treasury about getting funded for what you want to create! The
-            more diversity of people contributing in this decentralised experiment, the more
-            flourishing there will be in our social ecology.
-          </p>
-
-          <p>If anything, Kabocha will be different.</p>
         </div>
       </div>
       <div className="my-8">
@@ -87,7 +59,7 @@ export const TermsAndConditions = ({ onAccept }: TermsAndConditionsProps) => {
           className="rounded order-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
         />
         <label htmlFor="terms_acceptance" className="ml-2">
-          I have read and accept the terms and conditions of Kabocha Crowdloan
+          I hereby agree to the Kabocha Initial Testimony.
         </label>
       </div>
     </div>
