@@ -16,25 +16,30 @@ const CrowdloanTeaserLive = dynamic(
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className="container max-w-7xl mx-auto">
-        <div className="py-16 grid grid-cols-2 gap-16">
-          <div className="py-16">
-            <h1 className="text-6xl font-bold my-8">Kabocha Crowdloan</h1>
-            <p className="text-xl my-4">
-              Kabocha is a holistic self-evolving community parachain project spawned from Edgeware,
-              accelerating founders, creators and teams building new public infrastructure.
-            </p>
-            <p className="text-xl my-4">
-              Contribute KSM to participate in the Kabocha crowdloan, you can gain Kabocha Seeds
-              (NFTs) based on how much KSM you contribute. You can also gain some KAB based on
-              holding EDG.
-            </p>
+      <div className="container px-4">
+        <div className="pt-4 md:pt-8 lg:pt-16 mb-4 grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-16">
+          <div className="py-4 flex flex-col justify-center">
+            <div>
+              <h1 className="text-6xl font-bold my-8">Kabocha Crowdloan</h1>
+              <p className="text-xl my-4">
+                Kabocha is a holistic self-evolving community parachain project spawned from
+                Edgeware, accelerating founders, creators and teams building new public
+                infrastructure.
+              </p>
+              <p className="text-xl my-4">
+                Contribute KSM to participate in the Kabocha crowdloan, you can gain Kabocha Seeds
+                (NFTs) based on how much KSM you contribute. You can also gain some KAB based on
+                holding EDG.
+              </p>
+            </div>
           </div>
-          <div className="py-16">
-            <CrowdloanTeaserLive />
+          <div className="hidden md:block">
+            <div>
+              <CrowdloanTeaserLive />
+            </div>
           </div>
         </div>
-        <div className="py-8">
+        <div className="lg:py-8">
           <FAQ>
             <h2 className="text-4xl font-semibold my-8">FAQ</h2>
 

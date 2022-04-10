@@ -20,7 +20,7 @@ type FAQProps = {
 
 export const FAQ = ({ children }: FAQProps) => {
   return (
-    <div className="p-8 flex flex-col bg-gray-100 rounded-lg">
+    <div className="p-4 md:p-8 flex flex-col bg-gray-100 rounded-lg">
       {React.Children.map(children, (child) => {
         return <div>{child}</div>;
       })}

@@ -12,8 +12,11 @@ export function Layout(props: LayoutProps) {
   return (
     <>
       <Head>
-        <title>Kabocha Crowdloan App</title>
-        <meta name="description" content="Kabocha Crowdloan App" />
+        <title>Kabocha Crowdloan | Playground of possibilities</title>
+        <meta
+          name="description"
+          content="Contribute KSM to participate in the Kabocha crowdloan, you can gain Kabocha Seeds (NFTs) based on how much KSM you contribute."
+        />
         <link rel="icon" href="/icons/kabocha-small-32.png" />
       </Head>
       <div className="flex flex-col min-h-screen">
