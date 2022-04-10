@@ -4,7 +4,7 @@ type MainProps = {
 
 export function LayoutMain(props: MainProps) {
   return (
-    <main id="main" className="container md:mx-auto my-16">
+    <main id="main" className="container md:mx-auto md:my-16">
       {props.children}
     </main>
   );
