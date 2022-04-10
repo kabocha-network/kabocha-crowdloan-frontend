@@ -18,11 +18,11 @@ export const TermsAndConditions = ({ onAccept }: TermsAndConditionsProps) => {
           <h2>Initial Member Record Registration with Kabocha</h2>
             
           <p>
-          This document is the Initial Testimony for Members to sign and seal inorder to gain Initial Membership Status in Kabocha’s jurisdiction.
+          This document is the Initial Testimony for Members to sign and seal in order to gain Initial Membership Status in Kabocha’s jurisdiction.
           </p>
 
           <p>
-          The Kabocha Seed NFT in its Genesis Form represents Initial Membership Rights into theNetwork Public of Kabocha.By making this initial Testimony and making a nominal contribution to Kabocha in the form ofLocking KSM in a “Crowdloan” and signing through the Kabocha portal, you are AssignedInitial Membership Rights in the Kabocha Network Public.
+          The Kabocha Seed NFT in its Genesis Form represents Initial Membership Rights into theNetwork Public of Kabocha. By making this initial Testimony and making a nominal contribution to Kabocha in the form ofLocking KSM in a “Crowdloan” and signing through the Kabocha portal, you are Assigned Initial Membership Rights in the Kabocha Network Public.
           </p>
 
           <h2>Jurisdiction</h2>
@@ -36,7 +36,7 @@ export const TermsAndConditions = ({ onAccept }: TermsAndConditionsProps) => {
 
           <h2>Testimony</h2>
           <p>
-          You as a Human Being testify to be living, breathing, of sound mind and cognitive ability;You Testify that there is no Intermediary that has any Authority between you and the DivineCreator of all Realms.By entering the Kabocha jurisdiction you Testify to not be functioning in the Role, capacity, ortitle of a citizen, on-duty officer, on-duty government official, of any other Nation or Jurisdictionwhen entering Kabocha sovereign Network Public.Any aforementioned Role, capacity or title from a different jurisdiction has no effect in thejurisdiction of the Kabocha Network Public. The jurisdiction where Kabocha resides is asuperior jurisdiction to any other jurisdiction or society.
+          You as a Human Being testify to be living, breathing, of sound mind and cognitive ability; You Testify that there is no Intermediary that has any Authority between you and the Divine Creator of all Realms. By entering the Kabocha jurisdiction you Testify to not be functioning in the Role, capacity, or title of a citizen, on-duty officer, on-duty government official, of any other Nation or Jurisdiction when entering Kabocha sovereign Network Public. Any aforementioned Role, capacity or title from a different jurisdiction has no effect in thejurisdiction of the Kabocha Network Public. The jurisdiction where Kabocha resides is a superior jurisdiction to any other jurisdiction or society.
           </p>
 
           <h2>Vow</h2>
