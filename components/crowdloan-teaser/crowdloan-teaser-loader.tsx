@@ -2,7 +2,7 @@ import { KabochaLogo } from '../kabocha-logo/kabocha-logo';
 
 export const CrowdloanTeaserLoader = () => {
   return (
-    <div className="p-0 h-full overflow-clip rounded-xl bg-gray-100 flex">
+    <div className="p-0 h-full overflow-clip rounded-xl bg-gray-100 flex min-h-[478px]">
       {/* Progress bar with amount of raised KSM */}
       <div className="p-8 m-auto">
         <div className="w-32 h-32 m-auto animate-bounce">
