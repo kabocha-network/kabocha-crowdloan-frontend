@@ -4,16 +4,16 @@ export function LayoutFooter() {
       <div className="container mx-auto">
         <div className="text-center text-gray-500 py-2">
           <span>
-            Project funded by{' '}
+            Project funded by the {' '} 
             <a
               href="https://edgewa.re/"
               rel="noopener noreferrer"
               target="_blank"
               className="underline decoration-gray-200"
             >
-              Edgeware DAO
+              Edgeware
             </a>{' '}
-            in collaboration with{' '}
+            community, in collaboration with{' '}
             <a
               href="https://decent.partners/"
               rel="noopener noreferrer"
@@ -22,6 +22,16 @@ export function LayoutFooter() {
             >
               Decent Partners
             </a>
+            and
+            {' '}
+            <a
+              href="https://decentration.org/"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="underline decoration-gray-200"
+            >
+              Decentration Labs
+            </a> 
           </span>
         </div>
         <div className="text-center text-gray-500 py-2">
