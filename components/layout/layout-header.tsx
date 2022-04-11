@@ -18,6 +18,14 @@ export function LayoutHeader() {
           </Link>
           <nav className="flex flex-r gap-x-2 md:gap-x-4 lg:gap-x-8">
             <a
+              href="https://commonwealth.im/edgeware/discussion/2363-kabocha-kab-a-kusama-parachain-project-by-edgeware"
+              className="p-2 hover:text-primary"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Genesis
+            </a>
+            <a
               href="https://wiki.kabocha.network"
               className="p-2 hover:text-primary"
               target="_blank"
@@ -31,11 +39,11 @@ export function LayoutHeader() {
               target="_blank"
               rel="noreferrer noopener"
             >
-              Repo
+              Repos
             </a>
-            <Link href="/">
+            <Link href="https://wiki.kabocha.network">
               <a className="mx-2 p-2 px-4 md:px-8 rounded-md bg-primary text-white font-semibold hover:bg-black">
-                Crowdloan
+                Learn More
               </a>
             </Link>
           </nav>
