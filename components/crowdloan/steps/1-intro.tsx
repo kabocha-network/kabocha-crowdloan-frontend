@@ -28,7 +28,8 @@ export function IntroStep({ onStepComplete }: IntroStepProps) {
           Welcome to the Kabocha Crowdloan Campaign.
           <br />
           <br></br>
-          To continue, please read the Initial Testimony and agree, you will receive a Kabocha Seed (NFT) which will reflect your inital rights in Kabocha Network.
+          To continue, please read the Initial Testimony and agree, you will receive a Kabocha Seed
+          (NFT) which will reflect your inital rights in Kabocha Network.
         </p>
       </div>
 

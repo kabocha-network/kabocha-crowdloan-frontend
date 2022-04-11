@@ -4,7 +4,7 @@ export function LayoutFooter() {
       <div className="container mx-auto">
         <div className="text-center text-gray-500 p2">
           <span>
-            Project funded by the {' '} 
+            Project funded by the{' '}
             <a
               href="https://edgewa.re/"
               rel="noopener noreferrer"
@@ -22,8 +22,7 @@ export function LayoutFooter() {
             >
               Decent Partners
             </a>
-            and
-            {' '}
+            and{' '}
             <a
               href="https://decentration.org/"
               rel="noopener noreferrer"
@@ -31,7 +30,7 @@ export function LayoutFooter() {
               className="underline decoration-gray-200"
             >
               Decentration Labs
-            </a> 
+            </a>
           </span>
         </div>
         <div className="text-center text-gray-500 py-2">
