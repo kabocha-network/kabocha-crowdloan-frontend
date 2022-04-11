@@ -42,7 +42,7 @@ export function LayoutHeader() {
               Repos
             </a>
             <Link href="https://wiki.kabocha.network">
-              <a className="mx-2 p-2 px-4 md:px-8 rounded-md bg-primary text-white font-semibold hover:bg-black">
+              <a className="mx-2 p-2 px-4 md:px-8 rounded-md bg-primary text-white font-semibold hover:bg-black custom-shadow">
                 Learn More
               </a>
             </Link>
