@@ -47,7 +47,7 @@ const Home: NextPage = () => {
             <FAQItem question="What is the Crowdloan Cap?">
               <p>
                 The cap is set at 25k KSM, but we anticipate the possibility of winning an auction
-                before the cap is met, so be an early contributor to avoid disappointment!
+                before the cap is met.
                
               </p>
             </FAQItem>
