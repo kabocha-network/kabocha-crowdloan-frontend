@@ -22,15 +22,10 @@ const Home: NextPage = () => {
             <div>
               <h1 className="text-6xl font-bold my-8">Kabocha Crowdloan</h1>
               <p className="text-xl my-4">
-                Kabocha is a holistic self-evolving community parachain project spawned from
-                Edgeware, accelerating founders, creators and teams building new public
-                infrastructure.
+              Kabocha is a holistic self-evolving grass-roots parachain project spawned from Edgeware, funding and incubating teams to build new public infrastructure.
               </p>
-              <p className="text-xl my-4">
-                Contribute KSM to participate in the Kabocha crowdloan, you can gain Kabocha Seeds
-                (NFTs) based on how much KSM you contribute. You can also gain some KAB based on
-                holding EDG.
-              </p>
+              
+              
             </div>
           </div>
           <div className="hidden md:block">
@@ -79,12 +74,11 @@ const Home: NextPage = () => {
 
             <FAQItem question="What is an Initial Testimony?">
               <p>
-               One of our core values is sovereignty, as part of our research of jurisdiction of law, we have started to build within jurisdiction that also value your sovereignty. 
+               One of our core values is sovereignty, as part of our research of jurisdiction of law, we have started to build within a jurisdiction that values your sovereignty and enables you to function in with highest possible status and standing. 
                <br />
                
                An Initial Testimony is part of your Initial Member Record. Think of this as an initiation to a club, 
-               but instead of a private club, this club it is public jurisdiction that empowers human beings and respects their sovereignty. 
-               It's a testament of sovereignty, and a vow of honour. 
+               but instead of a private club, this club it is public jurisdiction that empowers human beings and respects their rights as a living human life form. It's a testament of sovereignty, and a vow of honour. 
                It is not asking anything of you accept to affirm your freedom and vow to be in honour and good faith, among the most primordial of laws.  Kabocha as a Network Public is working on building sovereign infrastructure and that includes building on jurisdiction that are not in the old realm. In due course, you will be able to increase the weight and substance of your Membership, and receive greater roles, rights and responsibilities in the governance and administration of Kabocha. Once you have agreed to the Initial Testminony, then you will receive a Kabocha Seed (NFT) in ites initial state. 
                The state (visual representation) of the Seed will represent your level of membership. 
               </p>
