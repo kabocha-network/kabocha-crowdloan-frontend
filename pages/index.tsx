@@ -26,8 +26,8 @@ const Home: NextPage = () => {
                 
                 
                 Kabocha is a holistic self-evolving grass-roots parachain project spawned from
-                Edgeware, funding and incubating teams to build new public infrastructure.<br></br>
-                Contribute KSM to gain KAB<br></br>
+                Edgeware, funding and incubating teams to build new public infrastructure.
+                
 
                 
               </p>
