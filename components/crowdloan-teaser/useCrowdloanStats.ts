@@ -14,7 +14,7 @@ export const useCrowdloanStats = () => {
   const { remainingTimeText } = useCrowdloanTimer(isReady);
 
   const currentAmount = 0;
-  const totalAmount = 1000;
+  const totalAmount = 25000;
   const progress = (currentAmount / totalAmount) * 100;
 
   useEffect(() => {

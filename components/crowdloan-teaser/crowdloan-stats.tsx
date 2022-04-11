@@ -27,6 +27,9 @@ export const CrowdloanStats = ({ onButtonClick }: CrowdloanStatsProps) => {
       <div className="p-8">
         <span className="block py-2 text-lg text-gray-400">Ends in:</span>
         <span className="block text-3xl font-semibold">{remainingTime}</span>
+        <span className="text-sm text-gray-400">
+          The Crowdloan could end early if we manage to win the auction.
+        </span>
       </div>
 
       {/* Button to contribute */}
