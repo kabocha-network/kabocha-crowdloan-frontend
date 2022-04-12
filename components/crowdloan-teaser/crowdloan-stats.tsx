@@ -41,7 +41,7 @@ export const CrowdloanStats = ({ onButtonClick }: CrowdloanStatsProps) => {
       <div className="block md:hidden p-8 ">
         <p>
           Our crowdloan UI is currently not available on a mobile phones. To contribute, please use
-          desktop browser with{' '}
+          a desktop browser with{' '}
           <Link href="https://polkadot.js.org/extension/">{`Polkadot.{js}`} extension.</Link>
         </p>
       </div>
