@@ -1,4 +1,5 @@
 import { Button } from '../button/button';
+import { Link } from '../link/link';
 import { ProgressBar } from '../progressbar/progressbar';
 import { useCrowdloanStats } from './useCrowdloanStats';
 
@@ -33,8 +34,16 @@ export const CrowdloanStats = ({ onButtonClick }: CrowdloanStatsProps) => {
       </div>
 
       {/* Button to contribute */}
-      <div className="p-8">
+      <div className="hidden md:block p-8">
         <Button onClick={onButtonClick}>Contribute</Button>
+      </div>
+
+      <div className="block md:hidden p-8 ">
+        <p>
+          Our crowdloan UI is currently not available on a mobile phones. To contribute, please use
+          desktop browser with{' '}
+          <Link href="https://polkadot.js.org/extension/">{`Polkadot.{js}`} extension.</Link>
+        </p>
       </div>
     </div>
   );

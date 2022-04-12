@@ -27,10 +27,8 @@ const Home: NextPage = () => {
               </p>
             </div>
           </div>
-          <div className="hidden md:block">
-            <div>
-              <CrowdloanTeaserLive />
-            </div>
+          <div className="block">
+            <CrowdloanTeaserLive />
           </div>
         </div>
         <div className="lg:py-8">
