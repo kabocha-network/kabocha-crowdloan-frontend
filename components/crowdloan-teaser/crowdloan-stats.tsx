@@ -7,7 +7,7 @@ type CrowdloanStatsProps = {
 };
 
 export const CrowdloanStats = ({ onButtonClick }: CrowdloanStatsProps) => {
-  const { progress, remainingTime, currentAmount, totalAmount } = useCrowdloanStats();
+  const { progress, remainingTime, currentAmount, cap } = useCrowdloanStats();
 
   return (
     <div className="p-0 overflow-clip rounded-xl bg-gray-100 divide-y divide-gray-200">
@@ -17,9 +17,9 @@ export const CrowdloanStats = ({ onButtonClick }: CrowdloanStatsProps) => {
         <ProgressBar progress={progress} />
         <div className="flex flex-row justify-between py-4">
           <span className="text-3xl font-semibold">
-            {currentAmount} of {totalAmount} KSM
+            {currentAmount} of {cap} KSM
           </span>
-          <span className="text-3xl font-semibold">{progress}%</span>
+          <span className="text-3xl font-semibold">{progress.toFixed(1)}%</span>
         </div>
       </div>
 

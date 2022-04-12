@@ -1,37 +1,54 @@
 import { useEffect, useState } from 'react';
-import { getApi } from '../../lib/crypto/utils';
+import { getAmountFromBigNumber, getApi } from '../../lib/crypto/utils';
 
-import type { Option, StorageKey } from '@polkadot/types';
-import type { AccountId, BalanceOf, BlockNumber, ParaId } from '@polkadot/types/interfaces';
 import { useCrowdloanTimer } from './useCrowdloanTimer';
+import { getCurrentApiProviderConfig } from '../../config';
 
-const fundOpts = {
-  transform: (keys: StorageKey<[ParaId]>[]): ParaId[] => keys.map(({ args: [paraId] }) => paraId),
+const DEFAULT_CAP = 25_000;
+
+type CrowdloanData = {
+  raised: string | number;
+  cap: string | string;
+};
+
+type CrowdloanStats = {
+  currentAmount: number;
+  cap: number;
 };
 
 export const useCrowdloanStats = () => {
   const [isReady, setIsReady] = useState(false);
+  const [stats, setStats] = useState<CrowdloanStats>({ currentAmount: 0, cap: DEFAULT_CAP });
   const { remainingTimeText } = useCrowdloanTimer(isReady);
 
-  const currentAmount = 0;
-  const totalAmount = 25000;
-  const progress = (currentAmount / totalAmount) * 100;
-
   useEffect(() => {
+    const config = getCurrentApiProviderConfig();
     async function fetchData() {
       const api = await getApi();
-      console.log('Api initialized');
+
+      const [decimals] = api.registry.chainDecimals;
+      const info = await api.query.crowdloan.funds(config.parachainId);
+
+      const parsedInfo = info.toJSON() as CrowdloanData;
+      setStats({
+        currentAmount: getAmountFromBigNumber(parsedInfo.raised, decimals),
+        cap: getAmountFromBigNumber(parsedInfo.cap, decimals),
+      });
       setIsReady(true);
     }
 
     fetchData();
   }, []);
 
+  const progress = (stats.currentAmount / stats.cap) * 100;
+
+  const formatter = new Intl.NumberFormat();
+
   return {
     isReady,
     progress,
-    currentAmount,
-    totalAmount,
+    currentAmount: formatter.format(stats.currentAmount),
+    cap: formatter.format(stats.cap),
     remainingTime: remainingTimeText,
   };
 };

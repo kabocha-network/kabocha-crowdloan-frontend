@@ -73,3 +73,9 @@ export const getBigNumberAmount = (amount: number, chainDecimals: number) => {
   const bnAmount = new BigNumber(amount).times(10 ** chainDecimals).toNumber();
   return bnAmount;
 };
+
+export const getAmountFromBigNumber = (amount: string | number, chainDecimals: number) => {
+  BigNumber.set({ DECIMAL_PLACES: chainDecimals });
+  const bnAmount = new BigNumber(amount).div(10 ** chainDecimals).toNumber();
+  return bnAmount;
+};
