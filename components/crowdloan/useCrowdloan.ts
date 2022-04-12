@@ -49,11 +49,11 @@ export function useCrowdloan() {
       // const balance = await api.derive.balances?.all(currentAccount.address);
       // const available = balance.availableBalance.toNumber();
       const decimals = api.registry.chainDecimals;
-      const amount = getBigNumberAmount(givenAmount, decimals);
+      const bnAmount = getBigNumberAmount(givenAmount, decimals[0]);
 
       // create a contribution transaction
+      const tx = api.tx.crowdloan.contribute(parachainId, bnAmount, null);
 
-      const tx = api.tx.crowdloan.contribute(parachainId, amount, null);
       const unsubscribe = await tx.signAndSend(
         currentAccount.address,
         ({ status, events, dispatchError }) => {

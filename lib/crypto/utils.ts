@@ -3,8 +3,8 @@ import { u8aToHex, stringToHex } from '@polkadot/util';
 import { web3FromSource } from '@polkadot/extension-dapp';
 import { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import { ApiPromise, WsProvider } from '@polkadot/api';
+import BigNumber from 'bignumber.js';
 
-import BN from 'bn.js';
 import { getCurrentApiProviderConfig } from '../../config';
 
 let api: ApiPromise;
@@ -68,10 +68,8 @@ export async function getSignedApi(currentAccount: InjectedAccountWithMeta) {
   return api;
 }
 
-export const getBigNumberAmount = (amount: number, chainDecimals: number[]) => {
-  const decims = new BN(chainDecimals);
-  const factor = new BN(10).pow(decims);
-  const bnAmount = new BN(amount).mul(factor);
-
+export const getBigNumberAmount = (amount: number, chainDecimals: number) => {
+  BigNumber.set({ DECIMAL_PLACES: chainDecimals });
+  const bnAmount = new BigNumber(amount).times(10 ** chainDecimals).toNumber();
   return bnAmount;
 };
