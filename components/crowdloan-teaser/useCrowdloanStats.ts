@@ -19,7 +19,7 @@ type CrowdloanStats = {
 export const useCrowdloanStats = () => {
   const [isReady, setIsReady] = useState(false);
   const [stats, setStats] = useState<CrowdloanStats>({ currentAmount: 0, cap: DEFAULT_CAP });
-  const { remainingTimeText } = useCrowdloanTimer(isReady);
+  const { remainingTimeText, remainingAuctionText } = useCrowdloanTimer(isReady);
 
   useEffect(() => {
     const config = getCurrentApiProviderConfig();
@@ -49,6 +49,7 @@ export const useCrowdloanStats = () => {
     progress,
     currentAmount: formatter.format(stats.currentAmount),
     cap: formatter.format(stats.cap),
-    remainingTime: remainingTimeText,
+    auctionTime: remainingAuctionText,
+    crowdloanTime: remainingTimeText,
   };
 };

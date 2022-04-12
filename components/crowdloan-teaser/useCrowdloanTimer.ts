@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 
 const CROWDLOAN_END_DATE = new Date('2022-06-16T22:00:00.000Z');
+const PARACHAIN_AUCTION_DATE = new Date('2022-04-17T18:26:00.000Z');
 
-const getRemainingTime = (): number => {
+const getRemainingTime = (toDate: Date): number => {
   const now = new Date();
-  const diff = CROWDLOAN_END_DATE.getTime() - now.getTime();
+  const diff = toDate.getTime() - now.getTime();
   return diff > 0 ? diff : 0;
 };
 
@@ -17,7 +18,8 @@ const formatDuration = (duration: number): string => {
 };
 
 export const useCrowdloanTimer = (live: boolean) => {
-  const [remainingTime, setRemainingTime] = useState(getRemainingTime());
+  const [remainingTime, setRemainingTime] = useState(getRemainingTime(CROWDLOAN_END_DATE));
+  const remainingAuctionTime = getRemainingTime(PARACHAIN_AUCTION_DATE);
 
   useEffect(() => {
     if (!live) {
@@ -25,7 +27,7 @@ export const useCrowdloanTimer = (live: boolean) => {
     }
 
     const interval = setInterval(() => {
-      setRemainingTime(getRemainingTime());
+      setRemainingTime(getRemainingTime(CROWDLOAN_END_DATE));
     }, 1000);
 
     return () => clearInterval(interval);
@@ -41,5 +43,6 @@ export const useCrowdloanTimer = (live: boolean) => {
   return {
     remainingTime,
     remainingTimeText: remainingTime ? formatDuration(remainingTime) : '0',
+    remainingAuctionText: remainingAuctionTime ? formatDuration(remainingAuctionTime) : '0',
   };
 };
