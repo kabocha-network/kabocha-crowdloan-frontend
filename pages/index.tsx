@@ -31,6 +31,8 @@ const Home: NextPage = () => {
             <CrowdloanTeaserLive />
           </div>
         </div>
+      </div>
+      <div className="px-4 max-w-6xl m-auto">
         <div className="lg:py-8">
           <FAQ>
             <h2 className="text-4xl font-semibold my-8">FAQ</h2>
