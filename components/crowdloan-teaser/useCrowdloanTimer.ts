@@ -14,7 +14,15 @@ const formatDuration = (duration: number): string => {
   const hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
 
-  return `${days} days ${hours} hours and ${minutes} minutes`;
+  if (days > 0) {
+    return `${days} days ${hours} hours and ${minutes} minutes`;
+  } else if (hours > 0) {
+    return `${hours} hours and ${minutes} minutes`;
+  } else if (minutes > 0) {
+    return `${minutes} minutes`;
+  } else {
+    return 'Ended!';
+  }
 };
 
 export const useCrowdloanTimer = (live: boolean) => {
