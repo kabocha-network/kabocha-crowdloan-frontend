@@ -21,7 +21,7 @@ export function LayoutFooter() {
               className="underline decoration-gray-200"
             >
               Decent Partners
-            </a>
+            </a>{' '}
             and{' '}
             <a
               href="https://decentration.org/"
@@ -34,7 +34,7 @@ export function LayoutFooter() {
           </span>
         </div>
         <div className="text-center text-gray-500 py-2">
-          Kabocha Network - Playground of possibilities!
+          Kabocha Network - Playground of possibilities
         </div>
       </div>
     </footer>

@@ -21,15 +21,9 @@ const Home: NextPage = () => {
           <div className="py-4 flex flex-col justify-center">
             <div>
               <h1 className="text-6xl font-bold my-8">Crowdloan is now live...</h1>
-               <p className="text-xl my-4">
-                 
-                
-                
+              <p className="text-xl my-4">
                 Kabocha is a holistic self-evolving grass-roots parachain project spawned from
                 Edgeware, funding and incubating teams to build new public infrastructure.
-                
-
-                
               </p>
             </div>
           </div>
@@ -43,12 +37,10 @@ const Home: NextPage = () => {
           <FAQ>
             <h2 className="text-4xl font-semibold my-8">FAQ</h2>
 
-            
             <FAQItem question="What is the Crowdloan Cap?">
               <p>
                 The cap is set at 25k KSM, but we anticipate the possibility of winning an auction
                 before the cap is met.
-               
               </p>
             </FAQItem>
 
@@ -84,22 +76,24 @@ const Home: NextPage = () => {
               <p>
                 One of our core values is sovereignty. As part of our research of jurisdiction of
                 law, we have started to build within a jurisdiction that values your sovereignty and
-                enables you to function in with highest possible status and standing. This is just the 
-                beginning of an ambitious goal to create a new system from the absolute foundation of canonical law. 
-                <br></br>
+                enables you to function in with highest possible status and standing. This is just
+                the beginning of an ambitious goal to create a new system from the absolute
+                foundation of canonical law.
+              </p>
+              <p>
                 An Initial Testimony is part of your Initial Member Record. Think of this as an
                 initiation to a club, but instead of a private club, this club it is public
-                jurisdiction that empowers human beings and respects their rights as living breathing (human)
-                life forms. It is a testament of sovereignty, and a vow of honour. It is not
-                asking anything of you accept to affirm your freedom and vow to be in honour and
-                good faith, among the most primordial of laws. Kabocha as a Network Public is
-                working on building sovereign infrastructure and that includes building on
+                jurisdiction that empowers human beings and respects their rights as living
+                breathing (human) life forms. It is a testament of sovereignty, and a vow of honour.
+                It is not asking anything of you accept to affirm your freedom and vow to be in
+                honour and good faith, among the most primordial of laws. Kabocha as a Network
+                Public is working on building sovereign infrastructure and that includes building on
                 jurisdiction that are not in the old realm. In due course, you will be able to
                 increase the weight and substance of your Membership, and receive greater roles,
                 rights and responsibilities in the governance and administration of Kabocha. Once
-                you have agreed to the Initial Testimony, then you will receive a Kabocha Seed
-                in its initial state. The state (visual representation) of the Seed will
-                represent your level of membership.
+                you have agreed to the Initial Testimony, then you will receive a Kabocha Seed in
+                its initial state. The state (visual representation) of the Seed will represent your
+                level of membership.
               </p>
             </FAQItem>
 
@@ -124,7 +118,29 @@ const Home: NextPage = () => {
             </FAQItem>
             <FAQItem question="What is a Crowdloan?">
               <p>
-                The word is confusing. A Crowdloan is not a loan, it is way of locking your KSM coins in order to vote for parachain to successfully win a slot in the network. Find out more <a href="https://wiki.polkadot.network/docs/learn-crowdloans">here</a>. 
+                The word is confusing. A Crowdloan is not a loan, it is way of locking your KSM
+                coins in order to vote for parachain to successfully win a slot in the network.
+                <br />
+                Find out more about them in the{' '}
+                <a href="https://wiki.polkadot.network/docs/learn-crowdloans">Polkadot docs</a>.
+              </p>
+            </FAQItem>
+            <FAQItem question="What is a Seed?">
+              <p>
+                Seeds are central to the governance of Kabocha, representing evolving roles, rights
+                and reputation in the network and future Publiks. Seeds are unique, non-transferable
+                assets that grow based on continuing contributions to the project. They will define
+                how you build identity, your voting power and access within future Publik domains.
+                There is no limit to the number of Seeds and uniqueness will not be defined by a
+                predefined algorithm, but by the continuing contributions of the owner.
+              </p>
+              <p>
+                Seeds can be earned through a number of different routes that all relate to
+                participation in the network - contributing KSM in the crowdloan is one way, putting
+                forward a proposal or voting on governance proposals are others.
+                <br />
+                The type and consistency of the contribution will determine the emergent logic of
+                how Seeds germinate and grow.
               </p>
             </FAQItem>
           </FAQ>
