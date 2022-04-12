@@ -7,7 +7,7 @@ type LinkProps = {
 };
 
 export function Link({ href, children, className = '' }: LinkProps) {
-  const linksClassName = `${className} font-semibold underline decoration-primary hover:bg-primary`;
+  const linksClassName = `${className} underline decoration-primary hover:bg-primary hover:text-white`;
 
   // use next/link for internal links
   if (href.startsWith('/')) {
