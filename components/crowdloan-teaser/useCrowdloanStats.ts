@@ -46,8 +46,8 @@ export const useCrowdloanStats = () => {
 
   return {
     isReady,
-    progress,
-    currentAmount: formatter.format(stats.currentAmount),
+    progress: progress.toFixed(1),
+    currentAmount: Math.round(stats.currentAmount),
     cap: formatter.format(stats.cap),
     auctionTime: remainingAuctionText,
     crowdloanTime: remainingTimeText,

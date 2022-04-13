@@ -20,7 +20,7 @@ export const CrowdloanStats = ({ onButtonClick }: CrowdloanStatsProps) => {
           <span className="text-2xl font-semibold">
             {currentAmount} of {cap} KSM
           </span>
-          <span className="text-2xl font-semibold">{progress.toFixed(1)}%</span>
+          <span className="text-2xl font-semibold">{progress}%</span>
         </div>
       </div>
 
