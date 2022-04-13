@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Script from 'next/script';
 
 import { LayoutFooter } from './layout-footer';
 import { LayoutHeader } from './layout-header';
@@ -19,6 +20,12 @@ export function Layout(props: LayoutProps) {
         />
         <link rel="icon" href="/icons/kabocha-small-32.png" />
       </Head>
+      {process.env.NODE_ENV && (
+        <Script
+          data-domain="crowdloan.kabocha.network"
+          src="https://plausible.io/js/plausible.js"
+        />
+      )}
       <div className="flex flex-col min-h-screen">
         <div>
           <LayoutHeader />
