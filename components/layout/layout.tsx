@@ -13,7 +13,7 @@ export function Layout(props: LayoutProps) {
   return (
     <>
       <Head>
-        <title>Kabocha Crowdloan | Playground of possibilities</title>
+        <title>Contribute to Kabocha Crowdloan | Kabocha: Playground of possibilities</title>
         <meta
           name="description"
           content="Contribute KSM to participate in the Kabocha crowdloan, you can gain Kabocha Seeds (NFTs) based on how much KSM you contribute."
