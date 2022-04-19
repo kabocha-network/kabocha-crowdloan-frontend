@@ -67,8 +67,35 @@ const Home: NextPage = () => {
             </FAQItem>
 
             <FAQItem question="If I hold EDG and contribute to the crowdloan, will I receive KAB for both?">
-              <p>Yes.</p>
+              <p>Yes. It doesn't matter if you use the same wallet or two different wallets, you will not lose on receiving KAB for either route.</p>
             </FAQItem>
+
+
+            <FAQItem question="What is a Seed?">
+              <p>
+                Seeds are central to the governance of Kabocha, representing evolving roles, rights
+                and reputation in the network and future Publiks. Seeds are unique, non-transferable
+                assets that grow based on continuing contributions to the project. They will define
+                how you build identity, your voting power and access within future Publik domains.
+                There is no limit to the number of Seeds and uniqueness will not be defined by a
+                predefined algorithm, but by the continuing contributions of the owner.
+              </p>
+              <p>
+                Seeds can be earned through a number of different routes that all relate to
+                participation in the network - contributing KSM in the crowdloan is one way, putting
+                forward a proposal or voting on governance proposals are others.
+                <br />
+                The type and consistency of the contribution will determine the emergent logic of
+                how Seeds germinate and grow.
+              </p>
+            </FAQItem>
+
+            <FAQItem question="Are Seeds transferable?">
+              <p>
+                Seeds are not transferable, just like you cannot transfer your passport, drivers licence or credit file to someone else. They are valuable but not to be sold. The Seed represents roles, duties and responsibilities, mandates, testimonies, vows, and identity. However, they can unlock other assets, votes and duties that can be transferable. This is a work in progress, and the experiment will unfold as we go.
+              </p>
+            </FAQItem>
+
 
             <FAQItem question="What is an Initial Testimony?">
               <p>
@@ -123,24 +150,7 @@ const Home: NextPage = () => {
                 <a href="https://wiki.polkadot.network/docs/learn-crowdloans">Polkadot docs</a>.
               </p>
             </FAQItem>
-            <FAQItem question="What is a Seed?">
-              <p>
-                Seeds are central to the governance of Kabocha, representing evolving roles, rights
-                and reputation in the network and future Publiks. Seeds are unique, non-transferable
-                assets that grow based on continuing contributions to the project. They will define
-                how you build identity, your voting power and access within future Publik domains.
-                There is no limit to the number of Seeds and uniqueness will not be defined by a
-                predefined algorithm, but by the continuing contributions of the owner.
-              </p>
-              <p>
-                Seeds can be earned through a number of different routes that all relate to
-                participation in the network - contributing KSM in the crowdloan is one way, putting
-                forward a proposal or voting on governance proposals are others.
-                <br />
-                The type and consistency of the contribution will determine the emergent logic of
-                how Seeds germinate and grow.
-              </p>
-            </FAQItem>
+
           </FAQ>
         </div>
       </div>
