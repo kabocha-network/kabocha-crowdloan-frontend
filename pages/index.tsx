@@ -35,27 +35,33 @@ const Home: NextPage = () => {
           <FAQ>
             <h2 className="text-4xl font-semibold my-8">FAQ</h2>
 
-            <FAQItem question="What is the Crowdloan Cap?">
+            <FAQItem question="What is the Crowdloan Cap?" id="crowdloan-cap">
               <p>
                 The cap is set at 25k KSM, but we anticipate the possibility of winning an auction
                 before the cap is met.
               </p>
             </FAQItem>
 
-            <FAQItem question="How much of the KAB supply is for crowdloan rewards?">
+            <FAQItem
+              question="How much of the KAB supply is for crowdloan rewards?"
+              id="crowdloan-rewards"
+            >
               <p>
                 4.9% of the KAB supply is for crowdloan rewards, this is estimated to be 3.1m KAB.
               </p>
             </FAQItem>
 
-            <FAQItem question="Why is 3.1m KAB only an estimate and not concretely known?">
+            <FAQItem
+              question="Why is 3.1m KAB only an estimate and not concretely known?"
+              id="crowdloan-rewards-estimate"
+            >
               <p>
                 Because the exact distribution of KAB will be known on the Snapshot Date, which is
                 14 days after an auction win.
               </p>
             </FAQItem>
 
-            <FAQItem question="What is the Snapshot Date?">
+            <FAQItem question="What is the Snapshot Date?" id="snapshot-date">
               <p>
                 The Snapshot Date is the time at which we take a snapshot of Edgeware&apos;s
                 distribution. Given that Kabocha is spawned from Edgeware, we will be
@@ -66,10 +72,15 @@ const Home: NextPage = () => {
               </p>
             </FAQItem>
 
-            <FAQItem question="If I hold EDG and contribute to the crowdloan, will I receive KAB for both?">
-              <p>Yes. It doesn't matter if you use the same wallet or two different wallets, you will not lose on receiving KAB for either route.</p>
+            <FAQItem
+              question="If I hold EDG and contribute to the crowdloan, will I receive KAB for both?"
+              id="edg-holders"
+            >
+              <p>
+                Yes. It doesn&apos;t matter if you use the same wallet or two different wallets, you
+                will not lose on receiving KAB for either route.
+              </p>
             </FAQItem>
-
 
             <FAQItem question="What is a Seed?">
               <p>
@@ -92,12 +103,15 @@ const Home: NextPage = () => {
 
             <FAQItem question="Are Seeds transferable?">
               <p>
-                Seeds are not transferable, just like you cannot transfer your passport, drivers licence or credit file to someone else. They are valuable but not to be sold. The Seed represents roles, duties and responsibilities, mandates, testimonies, vows, and identity. However, they can unlock other assets, votes and duties that can be transferable. This is a work in progress, and the experiment will unfold as we go.
+                Seeds are not transferable, just like you cannot transfer your passport, drivers
+                licence or credit file to someone else. They are valuable but not to be sold. The
+                Seed represents roles, duties and responsibilities, mandates, testimonies, vows, and
+                identity. However, they can unlock other assets, votes and duties that can be
+                transferable. This is a work in progress, and the experiment will unfold as we go.
               </p>
             </FAQItem>
 
-
-            <FAQItem question="What is an Initial Testimony?">
+            <FAQItem question="What is an Initial Testimony?" id="initial-testimony">
               <p>
                 One of our core values is sovereignty. As part of our research of jurisdiction of
                 law, we have started to build within a jurisdiction that values your sovereignty and
@@ -132,7 +146,7 @@ const Home: NextPage = () => {
                 value.
               </p>
             </FAQItem>
-            <FAQItem question="How do I contribute to the crowdloan?">
+            <FAQItem question="How do I contribute to the crowdloan?" id="how-to-contribute">
               <p>
                 To contribute to a campaign on-chain, a user must send a special transaction
                 designed for crowdloans that references the parachain&apos;s specific index. This
@@ -150,7 +164,6 @@ const Home: NextPage = () => {
                 <a href="https://wiki.polkadot.network/docs/learn-crowdloans">Polkadot docs</a>.
               </p>
             </FAQItem>
-
           </FAQ>
         </div>
       </div>
