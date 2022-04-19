@@ -3,12 +3,19 @@ import React from 'react';
 type FAQItemProps = {
   question: string;
   children: React.ReactNode;
+  id?: string;
 };
 
-export const FAQItem = ({ children, question }: FAQItemProps) => {
+export const FAQItem = ({ children, question, id }: FAQItemProps) => {
+  const anchorId = id || question.replace(/\s/g, '-').replace('?', '').toLowerCase();
+
   return (
     <div className="border-b border-b-gray-200 pb-6 mb-4">
-      <h3 className="text-2xl font-semibold py-2">{question}</h3>
+      <h3 className="text-2xl font-semibold py-2" id={anchorId}>
+        <a href={`#${anchorId}`} className="block">
+          {question}
+        </a>
+      </h3>
       <div className="prose prose-lg max-w-none">{children}</div>
     </div>
   );

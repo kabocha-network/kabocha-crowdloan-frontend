@@ -29,12 +29,15 @@ export const useCrowdloanStats = () => {
       const [decimals] = api.registry.chainDecimals;
       const info = await api.query.crowdloan.funds(config.parachainId);
 
-      const parsedInfo = info.toJSON() as CrowdloanData;
-      setStats({
-        currentAmount: getAmountFromBigNumber(parsedInfo.raised, decimals),
-        cap: getAmountFromBigNumber(parsedInfo.cap, decimals),
-      });
-      setIsReady(true);
+      const parsedInfo = info.toJSON() as CrowdloanData | null;
+
+      if (parsedInfo?.raised && parsedInfo?.cap) {
+        setStats({
+          currentAmount: getAmountFromBigNumber(parsedInfo.raised, decimals),
+          cap: getAmountFromBigNumber(parsedInfo.cap, decimals),
+        });
+        setIsReady(true);
+      }
     }
 
     fetchData();
