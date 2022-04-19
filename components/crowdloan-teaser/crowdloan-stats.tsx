@@ -17,7 +17,7 @@ export const CrowdloanStats = ({ onButtonClick }: CrowdloanStatsProps) => {
         <span className="block py-2 text-lg text-gray-400">Raised till now:</span>
         <ProgressBar progress={progress} />
         <div className="flex flex-row justify-between py-4">
-          <span className="text-3xl font-semibold">
+          <span className="text-3xl font-semibold font-display">
             {currentAmount} of {cap} KSM
           </span>
           <span className="text-3xl font-semibold">{progress.toFixed(1)}%</span>
@@ -27,7 +27,7 @@ export const CrowdloanStats = ({ onButtonClick }: CrowdloanStatsProps) => {
       {/* Time left */}
       <div className="p-8">
         <span className="block py-2 text-lg text-gray-400">Ends in:</span>
-        <span className="block text-3xl font-semibold">{remainingTime}</span>
+        <span className="block text-3xl font-semibold font-display">{remainingTime}</span>
         <span className="text-sm text-gray-400">
           The crowdloan could end much sooner if we win an earlier auction
         </span>

@@ -53,8 +53,8 @@ export function VerifyStep({ onStepComplete }: VerifyStepProps) {
 
   return (
     <>
-      <div className="prose prose-xl">
-        <h2>Step 3: Choose and verify account</h2>
+      <div className="prose">
+        <h2 className="font-display">Step 3: Choose and verify account</h2>
         <p>
           We ask you to select the <Link href="https://kusama.network/">Kusama</Link> address you
           will use to fund your crowdloan contribution. The KSM you plan to use must be unlocked and

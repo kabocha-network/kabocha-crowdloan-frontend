@@ -8,9 +8,7 @@ export const CrowdloanTeaserLoader = () => {
         <div className="w-32 h-32 m-auto animate-bounce">
           <KabochaLogo width={128} height={128} />
         </div>
-        <span className="block py-2 text-lg text-gray-400">
-          Initializing Crowdloan interface...
-        </span>
+        <span className="block py-2 text-gray-400">Initializing Crowdloan interface...</span>
       </div>
     </div>
   );

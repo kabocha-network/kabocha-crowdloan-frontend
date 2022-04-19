@@ -37,8 +37,8 @@ export function ContributeStep({ onStepComplete }: ContributeStepProps) {
 
   return (
     <>
-      <div className="prose prose-xl">
-        <h2>Step 4: Contribute</h2>
+      <div className="prose">
+        <h2 className="font-display">Step 4: Contribute</h2>
         <p>Choose the amount of KSM funds you want to contribute to the crowdloan.</p>
       </div>
       <div className="my-8 max-w-4xl">

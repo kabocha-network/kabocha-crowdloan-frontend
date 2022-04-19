@@ -11,12 +11,12 @@ export const FAQItem = ({ children, question, id }: FAQItemProps) => {
 
   return (
     <div className="border-b border-b-gray-200 pb-6 mb-4">
-      <h3 className="text-2xl font-semibold py-2" id={anchorId}>
+      <h3 className="text-2xl font-semibold py-2 font-display" id={anchorId}>
         <a href={`#${anchorId}`} className="block">
           {question}
         </a>
       </h3>
-      <div className="prose prose-lg max-w-none">{children}</div>
+      <div className="prose max-w-none">{children}</div>
     </div>
   );
 };

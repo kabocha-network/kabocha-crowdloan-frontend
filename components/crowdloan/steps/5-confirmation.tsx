@@ -11,8 +11,8 @@ export function ConfirmationStep() {
 
   return (
     <>
-      <div className="prose prose-xl">
-        <h2>Step 5: Confirmation</h2>
+      <div className="prose">
+        <h2 className="font-display">Step 5: Confirmation</h2>
         <p>Thank you for contributing to Kabocha Crowdloan!</p>
       </div>
 
@@ -33,7 +33,7 @@ export function ConfirmationStep() {
       </div>
 
       <div className="prose">
-        <h3>Kabocha seeds</h3>
+        <h3 className="font-display">Kabocha seeds</h3>
         <p>
           Kabocha seeds are coming soon!{' '}
           <a href="https://kabocha.network">Learn more on about our upcoming NFTs →</a>

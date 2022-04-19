@@ -20,8 +20,10 @@ const Home: NextPage = () => {
         <div className="pt-4 md:pt-8 lg:pt-16 mb-4 grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-16">
           <div className="py-4 flex flex-col justify-center">
             <div>
-              <h1 className="text-6xl font-bold my-8">Crowdloan is now live...</h1>
-              <p className="text-xl my-4">
+              <h1 className="text-6xl font-bold my-8 font-display text-primary">
+                Crowdloan is now live...
+              </h1>
+              <p className="my-4">
                 Kabocha is a holistic self-evolving grass-roots parachain project spawned from
                 Edgeware, funding and incubating teams to build new public infrastructure.
               </p>
@@ -33,7 +35,7 @@ const Home: NextPage = () => {
         </div>
         <div className="lg:py-8">
           <FAQ>
-            <h2 className="text-4xl font-semibold my-8">FAQ</h2>
+            <h2 className="text-4xl font-semibold my-8 font-display">FAQ</h2>
 
             <FAQItem question="What is the Crowdloan Cap?" id="crowdloan-cap">
               <p>

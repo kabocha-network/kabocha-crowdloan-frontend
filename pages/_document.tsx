@@ -8,10 +8,10 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+          href="https://fonts.googleapis.com/css2?family=Mulish&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
         />
       </Head>
-      <body className="text-black">
+      <body className="text-black font-sans">
         <Main />
         <div id="modal-root" />
         <NextScript />

@@ -15,7 +15,7 @@ export const TermsAndConditions = ({ onAccept }: TermsAndConditionsProps) => {
     <div>
       <div className="h-64 bg-gray-100 rounded overflow-y-auto p-4">
         <div className="prose prose-sm">
-          <h2>Initial Member Record Registration with Kabocha</h2>
+          <h2 className="font-display">Initial Member Record Registration with Kabocha</h2>
 
           <p>
             This document is the Initial Testimony for Members to sign and seal in order to gain
@@ -30,7 +30,7 @@ export const TermsAndConditions = ({ onAccept }: TermsAndConditionsProps) => {
             Public.
           </p>
 
-          <h2>Jurisdiction</h2>
+          <h2 className="font-display">Jurisdiction</h2>
           <p>
             All matters shall be dealt with in the Kabocha jurisdiction under Ucadian Law. Kabocha
             Network Public is a University True Trust under the Law of Ucadia. Ucadia is the
@@ -44,7 +44,7 @@ export const TermsAndConditions = ({ onAccept }: TermsAndConditionsProps) => {
             Consent.
           </p>
 
-          <h2>Testimony</h2>
+          <h2 className="font-display">Testimony</h2>
           <p>
             You as a Human Being Testify to be living, breathing, of sound mind and cognitive
             ability; That there is no Intermediary that has any Authority between you and the Divine
@@ -56,7 +56,7 @@ export const TermsAndConditions = ({ onAccept }: TermsAndConditionsProps) => {
             Kabocha resides is a superior jurisdiction to any other jurisdiction or society.
           </p>
 
-          <h2>Vow</h2>
+          <h2 className="font-display">Vow</h2>
           <p>You Vow to stay in full Honour, Competence and act in Good Faith.</p>
 
           <a href="https://singular.app/collectibles/12008862-f2529946857380f250-KABORD-KABOCHA_INITIAL_MEMBERSHIP_TESTIMONY-00000001">
