@@ -22,8 +22,8 @@ export function IntroStep({ onStepComplete }: IntroStepProps) {
 
   return (
     <>
-      <div className="prose prose-xl">
-        <h2>Step 1: Intro</h2>
+      <div className="prose">
+        <h2 className="font-display">Step 1: Intro</h2>
         <p>
           Welcome to the Kabocha Crowdloan Campaign.
           <br />

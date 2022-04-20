@@ -29,8 +29,8 @@ export function ExtensionStep({ onStepComplete }: ExtensionStepProps) {
 
   return (
     <>
-      <div className="prose prose-xl">
-        <h2>Step 2: Allow browser extension</h2>
+      <div className="prose">
+        <h2 className="font-display">Step 2: Allow browser extension</h2>
         <p>
           In order to process the crowdloan submission, this application needs to communicate with
           the <Link href="https://polkadot.js.org/extension/">{'Polkadot{.js}'}</Link> extension in
