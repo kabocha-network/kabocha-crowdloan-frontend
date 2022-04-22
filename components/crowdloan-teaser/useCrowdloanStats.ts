@@ -31,7 +31,7 @@ export const useCrowdloanStats = () => {
 
       const parsedInfo = info.toJSON() as CrowdloanData | null;
 
-      if (parsedInfo?.raised && parsedInfo?.cap) {
+      if (typeof parsedInfo?.raised !== 'undefined' && parsedInfo?.cap) {
         setStats({
           currentAmount: getAmountFromBigNumber(parsedInfo.raised, decimals),
           cap: getAmountFromBigNumber(parsedInfo.cap, decimals),

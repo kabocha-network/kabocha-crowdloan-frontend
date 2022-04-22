@@ -2,17 +2,17 @@ import Identicon from '@polkadot/react-identicon';
 import { useEffect, useState } from 'react';
 
 import { Button } from '../../button/button';
-import { ContributionState } from '../crowdloan';
 import { useCrowdloan } from '../useCrowdloan';
 
-type ContributeStepProps = {
-  onStepComplete: () => void;
-};
-
-export function ContributeStep({ onStepComplete }: ContributeStepProps) {
+export function ContributeStep() {
   const [amount, setAmount] = useState('');
-
-  const { progress, currentAccount, submitContribution, contributionError } = useCrowdloan();
+  const {
+    setNextStep,
+    currentAccount,
+    contributionActionProgress,
+    submitContribution,
+    contributionError,
+  } = useCrowdloan();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value);
@@ -26,10 +26,10 @@ export function ContributeStep({ onStepComplete }: ContributeStepProps) {
   };
 
   useEffect(() => {
-    if (progress === 'completed') {
-      onStepComplete();
+    if (contributionActionProgress === 'completed') {
+      setNextStep();
     }
-  }, [progress, onStepComplete]);
+  }, [contributionActionProgress, setNextStep]);
 
   if (!currentAccount?.address) {
     return null;
@@ -67,8 +67,8 @@ export function ContributeStep({ onStepComplete }: ContributeStepProps) {
         <div className="rounded p-6 bg-red-50 mt-2 text-red-600">{contributionError}</div>
       )}
       <div className="my-8">
-        <Button onClick={handleSubmit} disabled={progress === 'loading'}>
-          {progress === 'loading' ? 'Submitting...' : 'Sign and send'}
+        <Button onClick={handleSubmit} disabled={contributionActionProgress === 'loading'}>
+          {contributionActionProgress === 'loading' ? 'Submitting...' : 'Sign and send'}
         </Button>
       </div>
     </>

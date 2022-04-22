@@ -1,37 +1,49 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { getBigNumberAmount, getSignedApi } from '../../lib/crypto/utils';
 
 import { useSubstrate } from '../../providers/substrate-context';
+import { ContributionState, CrowdloanContext } from './crowdloanProvider';
 import { useParachainId } from './useParachainId';
-
-type ContributionActionProgress = 'initial' | 'loading' | 'completed' | 'error';
-type CrowdloanWizardStep = 'intro' | 'extension' | 'verify' | 'contribute' | 'success';
-
-type ContributionState = {
-  address: string;
-  amount: string;
-  tx: string;
-};
 
 export function useCrowdloan() {
   const { currentAccount } = useSubstrate();
   const parachainId = useParachainId();
-
-  const [progress, setProgress] = useState<ContributionActionProgress>('initial');
-  const [step, setStep] = useState<CrowdloanWizardStep>('intro');
-  const [tx, setTx] = useState<string | null>(null);
-  const [contributionState, setContributionState] = useState<ContributionState | null>(null);
-  const [contributionError, setContributionError] = useState<string | null>(null);
+  const {
+    crowdloanWizardStep,
+    setCrowdloanWizardStep,
+    contributionState,
+    setContributionState,
+    contributionError,
+    setContributionError,
+    contributionActionProgress,
+    setContributionActionProgress,
+    setTxHash,
+    testimonyAcceptance,
+    setTestimonyAcceptance,
+  } = useContext(CrowdloanContext);
 
   const handleError = (error: string) => {
-    setProgress('error');
+    setContributionActionProgress('error');
     setContributionError(error);
     console.error(error);
   };
 
+  async function storeContribution(testimony: string | null, contributionState: ContributionState) {
+    const response = await fetch('/api/crowdloan', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        testimony,
+        ...contributionState,
+      }),
+    });
+  }
+
   const submitContribution = async (givenAmount: number) => {
-    setProgress('loading');
-    setTx(null);
+    setContributionActionProgress('loading');
+    setTxHash(null);
 
     if (!currentAccount) {
       handleError('No account has been selected!');
@@ -52,9 +64,10 @@ export function useCrowdloan() {
       const bnAmount = getBigNumberAmount(givenAmount, decimals[0]);
 
       // create a contribution transaction
-      const tx = api.tx.crowdloan.contribute(parachainId, bnAmount, null);
+      const crowdloanTx = api.tx.crowdloan.contribute(parachainId, bnAmount, null);
 
-      const unsubscribe = await tx.signAndSend(
+      // sign the transaction and wait for it to be included in a block
+      const unsubscribe = await crowdloanTx.signAndSend(
         currentAccount.address,
         ({ status, events, dispatchError }) => {
           if (status.isReady) {
@@ -62,18 +75,21 @@ export function useCrowdloan() {
           } else if (status.isInBlock || status.isFinalized) {
             events.forEach(({ event }) => {
               if (event.method === 'ExtrinsicSuccess') {
-                setTx(tx.hash.toHex());
-                setContributionState({
-                  amount: givenAmount.toFixed(),
+                setTxHash(crowdloanTx.hash.toHex());
+
+                const contributionState = {
+                  amount: givenAmount,
                   address: currentAccount!.address,
-                  tx: tx.hash.toHex(),
-                });
-                setProgress('completed');
+                  txHash: crowdloanTx.hash.toHex(),
+                };
+                setContributionState(contributionState);
+                setContributionActionProgress('completed');
+                storeContribution(testimonyAcceptance, contributionState);
               } else if (event.method === 'ExtrinsicFailed') {
                 const {
                   data: [error],
                 } = event;
-                setTx(tx.hash.toHex());
+                setTxHash(crowdloanTx.hash.toHex());
                 handleError(error.toString());
               }
             });
@@ -90,33 +106,41 @@ export function useCrowdloan() {
   };
 
   const setNextStep = () => {
-    switch (step) {
+    switch (crowdloanWizardStep) {
       case 'intro':
-        setStep('extension');
+        setCrowdloanWizardStep('extension');
         break;
       case 'extension':
-        setStep('verify');
+        setCrowdloanWizardStep('verify');
         break;
       case 'verify':
-        setStep('contribute');
+        setCrowdloanWizardStep('contribute');
         break;
       case 'contribute':
-        setStep('success');
+        setCrowdloanWizardStep('success');
         break;
       default:
-        setStep('intro');
+        setCrowdloanWizardStep('intro');
+        break;
     }
   };
 
+  const acceptTestimony = () => {
+    const timestamp = new Date().toISOString();
+    setTestimonyAcceptance(timestamp);
+  };
+
   return {
-    step,
+    crowdloanWizardStep,
     setNextStep,
     currentAccount,
     contributionState,
     setContributionState,
-    tx,
-    progress,
+    contributionActionProgress,
+    setContributionActionProgress,
     submitContribution,
     contributionError,
+    testimonyAcceptance,
+    acceptTestimony,
   };
 }
