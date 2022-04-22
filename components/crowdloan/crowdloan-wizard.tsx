@@ -8,15 +8,15 @@ import { ConfirmationStep } from './steps/5-confirmation';
 import { useCrowdloan } from './useCrowdloan';
 
 export function CrowdloanWizard() {
-  const { step, setNextStep } = useCrowdloan();
+  const { crowdloanWizardStep } = useCrowdloan();
 
   return (
-    <SubstrateProvider>
-      {step === 'intro' && <IntroStep onStepComplete={setNextStep} />}
-      {step === 'extension' && <ExtensionStep onStepComplete={setNextStep} />}
-      {step === 'verify' && <VerifyStep onStepComplete={setNextStep} />}
-      {step === 'contribute' && <ContributeStep onStepComplete={setNextStep} />}
-      {step === 'success' && <ConfirmationStep />}
-    </SubstrateProvider>
+    <>
+      {crowdloanWizardStep === 'intro' && <IntroStep />}
+      {crowdloanWizardStep === 'extension' && <ExtensionStep />}
+      {crowdloanWizardStep === 'verify' && <VerifyStep />}
+      {crowdloanWizardStep === 'contribute' && <ContributeStep />}
+      {crowdloanWizardStep === 'success' && <ConfirmationStep />}
+    </>
   );
 }

@@ -1,14 +1,11 @@
-import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '../../button/button';
 import { TermsAndConditions } from '../terms-and-conditions';
+import { useCrowdloan } from '../useCrowdloan';
 
-type IntroStepProps = {
-  onStepComplete: () => void;
-};
-
-export function IntroStep({ onStepComplete }: IntroStepProps) {
+export function IntroStep() {
   const [isAccepted, setIsAccepted] = useState(false);
+  const { setNextStep } = useCrowdloan();
 
   const handleOnAccept = (value: boolean) => {
     setIsAccepted(value);
@@ -16,7 +13,7 @@ export function IntroStep({ onStepComplete }: IntroStepProps) {
 
   const handleContinue = () => {
     if (isAccepted) {
-      onStepComplete();
+      setNextStep();
     }
   };
 

@@ -4,6 +4,7 @@ import { Link } from '../../link/link';
 
 import { signMessage } from '../../../lib/crypto/utils';
 import { useSubstrate } from '../../../providers/substrate-context';
+import { useCrowdloan } from '../useCrowdloan';
 
 const defaultOptions = {
   label: '--- Select your account ---',
@@ -12,12 +13,9 @@ const defaultOptions = {
 
 const MESSAGE = 'I am signing this message to prove that I am a human.';
 
-type VerifyStepProps = {
-  onStepComplete: () => void;
-};
-
-export function VerifyStep({ onStepComplete }: VerifyStepProps) {
+export function VerifyStep() {
   const { accounts, currentAccount, setCurrentAccount } = useSubstrate();
+  const { setNextStep } = useCrowdloan();
 
   const handleChange = (value: string) => {
     const account = accounts?.find((a) => a.address === value);
@@ -44,7 +42,7 @@ export function VerifyStep({ onStepComplete }: VerifyStepProps) {
     try {
       const message = await signMessage(MESSAGE, currentAccount);
       if (message) {
-        onStepComplete();
+        setNextStep();
       }
     } catch (e) {
       console.error('Error signing message', e);

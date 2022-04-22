@@ -4,19 +4,17 @@ import { useSubstrate } from '../../../providers/substrate-context';
 
 import { Button } from '../../button/button';
 import { Link } from '../../link/link';
+import { useCrowdloan } from '../useCrowdloan';
 
-type ExtensionStepProps = {
-  onStepComplete: () => void;
-};
-
-export function ExtensionStep({ onStepComplete }: ExtensionStepProps) {
+export function ExtensionStep() {
   const { web3enable, web3enabled } = useSubstrate();
+  const { setNextStep } = useCrowdloan();
 
   useEffect(() => {
     if (web3enabled) {
-      onStepComplete();
+      setNextStep();
     }
-  }, [web3enabled, onStepComplete]);
+  }, [web3enabled, setNextStep]);
 
   const activateExtension = async () => {
     if (!web3enabled) {

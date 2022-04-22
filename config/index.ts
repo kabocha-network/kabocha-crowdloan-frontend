@@ -15,7 +15,7 @@ type ApiProviderConfig = {
 const apiProviderConfig: Record<string, ApiProviderConfig> = {
   [NETWORKS.popart]: {
     id: NETWORKS.popart,
-    parachainId: 2007,
+    parachainId: 2000,
     wsProviderUrl: 'wss://popart1.jelliedowl.com',
   },
   [NETWORKS.kusama]: {
