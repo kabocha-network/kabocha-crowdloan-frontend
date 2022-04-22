@@ -44,13 +44,12 @@ export const useCrowdloanStats = () => {
   }, []);
 
   const progress = (stats.currentAmount / stats.cap) * 100;
-
   const formatter = new Intl.NumberFormat();
 
   return {
     isReady,
-    progress,
-    currentAmount: formatter.format(stats.currentAmount),
+    progress: progress,
+    currentAmount: formatter.format(Math.round(stats.currentAmount)),
     cap: formatter.format(stats.cap),
     remainingTime: remainingTimeText,
   };
