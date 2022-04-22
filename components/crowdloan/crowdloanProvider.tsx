@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 export type ContributionState = {
   address: string;
   amount: number;
-  tx: string;
+  txHash: string;
 };
 
 type ContributionActionProgress = 'initial' | 'loading' | 'completed' | 'error';
@@ -18,8 +18,10 @@ type CrowdloanContextProps = {
   setCrowdloanWizardStep: (step: CrowdloanWizardStep) => void;
   contributionActionProgress: ContributionActionProgress;
   setContributionActionProgress: (progress: ContributionActionProgress) => void;
-  tx: string | null;
-  setTx: (tx: string | null) => void;
+  txHash: string | null;
+  setTxHash: (tx: string | null) => void;
+  testimonyAcceptance: string | null;
+  setTestimonyAcceptance: (acceptance: string | null) => void;
 };
 
 export const CrowdloanContext = createContext<CrowdloanContextProps>({} as CrowdloanContextProps);
@@ -32,9 +34,10 @@ export const CrowdloanContextProvider = ({ children }: CrowdloanContextProviderP
   const [contributionActionProgress, setContributionActionProgress] =
     useState<ContributionActionProgress>('initial');
   const [crowdloanWizardStep, setCrowdloanWizardStep] = useState<CrowdloanWizardStep>('intro');
-  const [tx, setTx] = useState<string | null>(null);
+  const [txHash, setTxHash] = useState<string | null>(null);
   const [contributionState, setContributionState] = useState<ContributionState | null>(null);
   const [contributionError, setContributionError] = useState<string | null>(null);
+  const [testimonyAcceptance, setTestimonyAcceptance] = useState<string | null>(null);
 
   const context: CrowdloanContextProps = {
     contributionState,
@@ -45,8 +48,10 @@ export const CrowdloanContextProvider = ({ children }: CrowdloanContextProviderP
     setCrowdloanWizardStep,
     contributionActionProgress,
     setContributionActionProgress,
-    tx,
-    setTx,
+    txHash,
+    setTxHash,
+    testimonyAcceptance,
+    setTestimonyAcceptance,
   };
 
   return <CrowdloanContext.Provider value={context}>{children}</CrowdloanContext.Provider>;

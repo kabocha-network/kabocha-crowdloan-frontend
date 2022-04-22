@@ -1,7 +1,8 @@
+import { useEffect } from 'react';
 import { useCrowdloan } from '../useCrowdloan';
 
 export function ConfirmationStep() {
-  const { contributionState } = useCrowdloan();
+  const { contributionState, testimonyAcceptance } = useCrowdloan();
 
   return (
     <>
@@ -18,12 +19,12 @@ export function ConfirmationStep() {
             <span className="block">
               {'TX: '}
               <a
-                href={`https://kusama.subscan.io/extrinsic/${contributionState.tx}`}
+                href={`https://kusama.subscan.io/extrinsic/${contributionState.txHash}`}
                 target="_blank"
                 className="underline decoration-primary hover:bg-primary hover:text-white"
                 rel="noopener noreferrer"
               >
-                {contributionState.tx}
+                {contributionState.txHash}
               </a>
             </span>
           </>

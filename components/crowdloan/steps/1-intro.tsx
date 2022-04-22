@@ -5,7 +5,7 @@ import { useCrowdloan } from '../useCrowdloan';
 
 export function IntroStep() {
   const [isAccepted, setIsAccepted] = useState(false);
-  const { setNextStep } = useCrowdloan();
+  const { setNextStep, acceptTestimony } = useCrowdloan();
 
   const handleOnAccept = (value: boolean) => {
     setIsAccepted(value);
@@ -13,6 +13,7 @@ export function IntroStep() {
 
   const handleContinue = () => {
     if (isAccepted) {
+      acceptTestimony();
       setNextStep();
     }
   };
